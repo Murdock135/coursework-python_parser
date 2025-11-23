@@ -22,12 +22,3 @@ OP_3: '==' | '!=' | '<' | '<=' | '>' | '>='; // Comparison operators
 NEWLINE: [\r\n]+;
 INT: [0-9]+;
 WS: [ \t]+ -> skip; // Skip spaces, tabs and newlines
-
-// main branch
-
-// expr:
-// 	expr OP_1 expr
-// 	| expr OP_2 expr
-//     | expr OP_3 expr
-//     | INT
-// 	| '(' expr ')';

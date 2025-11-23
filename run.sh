@@ -1,0 +1,1 @@
+docker-antlr -Dlanguage=Python3 minipython.g4

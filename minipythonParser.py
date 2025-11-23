@@ -5,19 +5,18 @@ from io import StringIO
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\21")
+        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\t")
         buf.write(" \4\2\t\2\4\3\t\3\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3")
         buf.write("\5\3\20\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3\33")
-        buf.write("\n\3\f\3\16\3\36\13\3\3\3\2\3\4\4\2\4\2\5\3\2\3\4\3\2")
-        buf.write("\5\6\3\2\7\f!\2\6\3\2\2\2\4\17\3\2\2\2\6\7\5\4\3\2\7\b")
-        buf.write("\7\2\2\3\b\3\3\2\2\2\t\n\b\3\1\2\n\20\7\17\2\2\13\f\7")
-        buf.write("\r\2\2\f\r\5\4\3\2\r\16\7\16\2\2\16\20\3\2\2\2\17\t\3")
-        buf.write("\2\2\2\17\13\3\2\2\2\20\34\3\2\2\2\21\22\f\7\2\2\22\23")
-        buf.write("\t\2\2\2\23\33\5\4\3\b\24\25\f\6\2\2\25\26\t\3\2\2\26")
-        buf.write("\33\5\4\3\7\27\30\f\5\2\2\30\31\t\4\2\2\31\33\5\4\3\6")
-        buf.write("\32\21\3\2\2\2\32\24\3\2\2\2\32\27\3\2\2\2\33\36\3\2\2")
-        buf.write("\2\34\32\3\2\2\2\34\35\3\2\2\2\35\5\3\2\2\2\36\34\3\2")
-        buf.write("\2\2\5\17\32\34")
+        buf.write("\n\3\f\3\16\3\36\13\3\3\3\2\3\4\4\2\4\2\2!\2\6\3\2\2\2")
+        buf.write("\4\17\3\2\2\2\6\7\5\4\3\2\7\b\7\2\2\3\b\3\3\2\2\2\t\n")
+        buf.write("\b\3\1\2\n\20\7\b\2\2\13\f\7\3\2\2\f\r\5\4\3\2\r\16\7")
+        buf.write("\4\2\2\16\20\3\2\2\2\17\t\3\2\2\2\17\13\3\2\2\2\20\34")
+        buf.write("\3\2\2\2\21\22\f\7\2\2\22\23\7\5\2\2\23\33\5\4\3\b\24")
+        buf.write("\25\f\6\2\2\25\26\7\6\2\2\26\33\5\4\3\7\27\30\f\5\2\2")
+        buf.write("\30\31\7\7\2\2\31\33\5\4\3\6\32\21\3\2\2\2\32\24\3\2\2")
+        buf.write("\2\32\27\3\2\2\2\33\36\3\2\2\2\34\32\3\2\2\2\34\35\3\2")
+        buf.write("\2\2\35\5\3\2\2\2\36\34\3\2\2\2\5\17\32\34")
         return buf.getvalue()
 
 
@@ -31,13 +30,10 @@ class minipythonParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'*'", "'/'", "'+'", "'-'", "'=='", "'!='", 
-                     "'<'", "'<='", "'>'", "'>='", "'('", "')'" ]
+    literalNames = [ "<INVALID>", "'('", "')'" ]
 
-    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "INT", "NEWLINE", "WS" ]
+    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "OP_1", "OP_2", 
+                      "OP_3", "INT", "WS" ]
 
     RULE_prog = 0
     RULE_expr = 1
@@ -47,19 +43,11 @@ class minipythonParser ( Parser ):
     EOF = Token.EOF
     T__0=1
     T__1=2
-    T__2=3
-    T__3=4
-    T__4=5
-    T__5=6
-    T__6=7
-    T__7=8
-    T__8=9
-    T__9=10
-    T__10=11
-    T__11=12
-    INT=13
-    NEWLINE=14
-    WS=15
+    OP_1=3
+    OP_2=4
+    OP_3=5
+    INT=6
+    WS=7
 
     def __init__(self, input:TokenStream):
         super().__init__(input)
@@ -130,6 +118,15 @@ class minipythonParser ( Parser ):
                 return self.getTypedRuleContext(minipythonParser.ExprContext,i)
 
 
+        def OP_1(self):
+            return self.getToken(minipythonParser.OP_1, 0)
+
+        def OP_2(self):
+            return self.getToken(minipythonParser.OP_2, 0)
+
+        def OP_3(self):
+            return self.getToken(minipythonParser.OP_3, 0)
+
         def getRuleIndex(self):
             return minipythonParser.RULE_expr
 
@@ -150,7 +147,6 @@ class minipythonParser ( Parser ):
         _prevctx = localctx
         _startState = 2
         self.enterRecursionRule(localctx, 2, self.RULE_expr, _p)
-        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 13
@@ -160,13 +156,13 @@ class minipythonParser ( Parser ):
                 self.state = 8
                 self.match(minipythonParser.INT)
                 pass
-            elif token in [minipythonParser.T__10]:
+            elif token in [minipythonParser.T__0]:
                 self.state = 9
-                self.match(minipythonParser.T__10)
+                self.match(minipythonParser.T__0)
                 self.state = 10
                 self.expr(0)
                 self.state = 11
-                self.match(minipythonParser.T__11)
+                self.match(minipythonParser.T__1)
                 pass
             else:
                 raise NoViableAltException(self)
@@ -191,12 +187,7 @@ class minipythonParser ( Parser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
                         self.state = 16
-                        _la = self._input.LA(1)
-                        if not(_la==minipythonParser.T__0 or _la==minipythonParser.T__1):
-                            self._errHandler.recoverInline(self)
-                        else:
-                            self._errHandler.reportMatch(self)
-                            self.consume()
+                        self.match(minipythonParser.OP_1)
                         self.state = 17
                         self.expr(6)
                         pass
@@ -209,12 +200,7 @@ class minipythonParser ( Parser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
                         self.state = 19
-                        _la = self._input.LA(1)
-                        if not(_la==minipythonParser.T__2 or _la==minipythonParser.T__3):
-                            self._errHandler.recoverInline(self)
-                        else:
-                            self._errHandler.reportMatch(self)
-                            self.consume()
+                        self.match(minipythonParser.OP_2)
                         self.state = 20
                         self.expr(5)
                         pass
@@ -227,12 +213,7 @@ class minipythonParser ( Parser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
                         self.state = 22
-                        _la = self._input.LA(1)
-                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << minipythonParser.T__4) | (1 << minipythonParser.T__5) | (1 << minipythonParser.T__6) | (1 << minipythonParser.T__7) | (1 << minipythonParser.T__8) | (1 << minipythonParser.T__9))) != 0)):
-                            self._errHandler.recoverInline(self)
-                        else:
-                            self._errHandler.reportMatch(self)
-                            self.consume()
+                        self.match(minipythonParser.OP_3)
                         self.state = 23
                         self.expr(4)
                         pass

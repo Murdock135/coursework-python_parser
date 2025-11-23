@@ -1,6 +1,6 @@
-# Generated from minipython.g4 by ANTLR 4.13.2
+# Generated from /home/zayan/Documents/code/mine/coursework-python_parser/minipython.g4 by ANTLR 4.6
 from antlr4 import *
-if "." in __name__:
+if __name__ is not None and "." in __name__:
     from .minipythonParser import minipythonParser
 else:
     from minipythonParser import minipythonParser
@@ -26,5 +26,3 @@ class minipythonListener(ParseTreeListener):
         pass
 
 
-
-del minipythonParser

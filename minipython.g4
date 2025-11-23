@@ -20,7 +20,13 @@ expr:
     | '{' expr ':' ( expr (',' expr ':' expr)* )? '}' // dict
 	| atom;
 
-atom: NUMBER | ID | STRING;
+atom: NUMBER | ID | STRING | BOOL;
+
+// TODO:
+// -----------------------------------------------------------------------------
+// 1. Conditionals
+// 2. Loops
+// 3. Function definitions and calls
 
 // ==============================================================================
 // Lexer rules (tokens)
@@ -29,6 +35,7 @@ atom: NUMBER | ID | STRING;
 NUMBER: INT | FLOAT;
 FLOAT: '-'? [0-9]+ '.' [0-9]+; // Floating point literals
 INT: '-'? [0-9]+; // Integer literals
+BOOL: 'True' | 'False'; // Boolean literals
 STRING:
 	'"' ('\\' . | ~["\\\r\n])* '"' // Double-quoted strings: Backslash escapes followed by any character OR any character except backslash, double-quote, carriage return, or newline
 	| '\'' ( '\\' . | ~['\\\r\n])* '\''; // Single-quoted strings: Backslash escapes followed by any character OR any character except backslash, single-quote, carriage return, or newline

@@ -1,5 +1,9 @@
 grammar minipython;
 
+// ==============================================================================
+// Parser rules (rules that define the structure of the language)
+// ==============================================================================
+
 prog: block EOF;
 
 block: (expr NEWLINE)*;
@@ -18,18 +22,22 @@ expr:
 
 atom: NUMBER | ID | STRING;
 
+// ==============================================================================
+// Lexer rules (tokens)
+// ==============================================================================
+
 NUMBER: INT | FLOAT;
 FLOAT: '-'? [0-9]+ '.' [0-9]+; // Floating point literals
 INT: '-'? [0-9]+; // Integer literals
 STRING:
-	'"' ('\\' . | ~["\\\r\n])* '"'
-	| '\'' ( '\\' . | ~['\\\r\n])* '\'';
+	'"' ('\\' . | ~["\\\r\n])* '"' // Double-quoted strings: Backslash escapes followed by any character OR any character except backslash, double-quote, carriage return, or newline
+	| '\'' ( '\\' . | ~['\\\r\n])* '\''; // Single-quoted strings: Backslash escapes followed by any character OR any character except backslash, single-quote, carriage return, or newline
 ID:
 	[a-zA-Z_][a-zA-Z0-9_]*; // Identifiers start with letters or underscore
 
 // Operators
 OP_1: '*' | '/' | '%'; // Multiplicative operators
-OP_2: '+' | '-'; // Arithmetic operators
+OP_2: '+' | '-'; // Additive operators
 OP_3:
 	'=='
 	| '!='

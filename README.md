@@ -9,3 +9,9 @@ A grammar file is named <grammar_name>.g4, same as the name of the grammar. The 
 ```sh
 antlr4 -Dlanguage=Python3 <.g4 file>
 ```
+
+You can also use the docker image in https://hub.docker.com/r/petervaczi/antlr, follow the instructions there and run
+
+```sh
+docker-antlr -Dlanguage=Python3 <.g4 file>
+```

@@ -32,6 +32,8 @@ atom: NUMBER | ID | STRING | BOOL;
 // Lexer rules (tokens)
 // ==============================================================================
 
+ID:
+	[a-zA-Z_][a-zA-Z0-9_]*; // Identifiers start with letters or underscore
 NUMBER: INT | FLOAT;
 FLOAT: '-'? [0-9]+ '.' [0-9]+; // Floating point literals
 INT: '-'? [0-9]+; // Integer literals
@@ -39,8 +41,6 @@ BOOL: 'True' | 'False'; // Boolean literals
 STRING:
 	'"' ('\\' . | ~["\\\r\n])* '"' // Double-quoted strings: Backslash escapes followed by any character OR any character except backslash, double-quote, carriage return, or newline
 	| '\'' ( '\\' . | ~['\\\r\n])* '\''; // Single-quoted strings: Backslash escapes followed by any character OR any character except backslash, single-quote, carriage return, or newline
-ID:
-	[a-zA-Z_][a-zA-Z0-9_]*; // Identifiers start with letters or underscore
 
 // Operators
 OP_1: '*' | '/' | '%'; // Multiplicative operators
@@ -53,5 +53,6 @@ OP_3:
 	| '>'
 	| '>='; // Comparison operators
 
+COMMENT: '#' ~[\r\n]* -> skip; // Skip comments
 NEWLINE: [\r\n]+;
 WS: [ \t]+ -> skip; // Skip spaces, tabs and newlines

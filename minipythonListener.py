@@ -17,12 +17,30 @@ class minipythonListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by minipythonParser#block.
+    def enterBlock(self, ctx:minipythonParser.BlockContext):
+        pass
+
+    # Exit a parse tree produced by minipythonParser#block.
+    def exitBlock(self, ctx:minipythonParser.BlockContext):
+        pass
+
+
     # Enter a parse tree produced by minipythonParser#expr.
     def enterExpr(self, ctx:minipythonParser.ExprContext):
         pass
 
     # Exit a parse tree produced by minipythonParser#expr.
     def exitExpr(self, ctx:minipythonParser.ExprContext):
+        pass
+
+
+    # Enter a parse tree produced by minipythonParser#atom.
+    def enterAtom(self, ctx:minipythonParser.AtomContext):
+        pass
+
+    # Exit a parse tree produced by minipythonParser#atom.
+    def exitAtom(self, ctx:minipythonParser.AtomContext):
         pass
 
 

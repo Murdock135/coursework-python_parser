@@ -26,6 +26,15 @@ class minipythonListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by minipythonParser#statement.
+    def enterStatement(self, ctx:minipythonParser.StatementContext):
+        pass
+
+    # Exit a parse tree produced by minipythonParser#statement.
+    def exitStatement(self, ctx:minipythonParser.StatementContext):
+        pass
+
+
     # Enter a parse tree produced by minipythonParser#expr.
     def enterExpr(self, ctx:minipythonParser.ExprContext):
         pass

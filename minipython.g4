@@ -6,11 +6,15 @@ grammar minipython;
 
 prog: block EOF;
 
-block: (expr NEWLINE)*;
+block: (statement NEWLINE)*;
+
+statement:
+	ID '=' expr // assignment
+	| expr // expression statement
+	| ID COMPOUND_OP expr // compound assignment
+	;
 
 expr:
-	ID '=' expr // assignment as part of expr
-	| ID COMPOUND_OP expr // compound assignment
 	| expr OP_1 expr
 	| expr OP_2 expr
 	| expr OP_3 expr
@@ -53,7 +57,7 @@ OP_3:
 	| '<='
 	| '>'
 	| '>='; // Comparison operators
-COMPOUND_OP: OP_2 '=' | OP_1 '='; // Compound assignment operatorss
+COMPOUND_OP: (OP_1 | OP_2) '='; // Compound assignment operators
 
 COMMENT: '#' ~[\r\n]* -> skip; // Skip comments
 NEWLINE: [\r\n]+;

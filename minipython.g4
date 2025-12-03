@@ -9,7 +9,8 @@ prog: block EOF;
 block: (expr NEWLINE)*;
 
 expr:
-	| ID '=' expr // assignment as part of expr
+	ID '=' expr // assignment as part of expr
+	| ID COMPOUND_OP expr // compound assignment
 	| expr OP_1 expr
 	| expr OP_2 expr
 	| expr OP_3 expr
@@ -52,6 +53,7 @@ OP_3:
 	| '<='
 	| '>'
 	| '>='; // Comparison operators
+COMPOUND_OP: OP_2 '=' | OP_1 '='; // Compound assignment operatorss
 
 COMMENT: '#' ~[\r\n]* -> skip; // Skip comments
 NEWLINE: [\r\n]+;

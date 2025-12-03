@@ -1,6 +1,6 @@
 # Prerequisites
 
-antlr4 and a runtime for antlr needs to be installed. Refer to https://www.antlr.org/download.html for instructions on installing these.
+antlr4 and a runtime for antlr needs to be installed. Refer to https://www.antlr.org/download.html for instructions on installing these. Alternatively, you can simply pull the docker image: https://hub.docker.com/r/petervaczi/antlr. This image has the required packages for using antlr4.
 
 # Running a grammar file
 

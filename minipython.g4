@@ -6,7 +6,7 @@ grammar minipython;
 
 prog: block EOF;
 
-block: (statement NEWLINE)*;
+block: NEWLINE* (statement NEWLINE+ )* statement? NEWLINE* ; // catches multiple statements separated by newlines, allowing optional newlines at the start and end.
 
 statement:
 	ID '=' expr // assignment

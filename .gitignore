@@ -16,6 +16,7 @@ wheels/
 *Visitor.py
 *.tokens
 *.interp
+parse_tree.ps
 
 # IDE/Editor files
 .vscode/

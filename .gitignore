@@ -8,3 +8,22 @@ wheels/
 
 # Virtual environments
 .venv
+
+# ANTLR generated files
+*Lexer.py
+*Parser.py
+*Listener.py
+*Visitor.py
+*.tokens
+*.interp
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

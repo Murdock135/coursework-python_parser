@@ -15,15 +15,27 @@ statement:
 	;
 
 expr:
-	| expr OP_1 expr
-	| expr OP_2 expr
-	| expr OP_3 expr
+	| expr OP_1 expr // multiplicative
+	| expr OP_2 expr // additive
+	| expr OP_3 expr // comparison
 	| '(' expr ')' // parenthesized expr
 	| '(' expr ',' expr (',' expr)* ')' // tuple (2+ elements)
 	| '(' expr ',' ')' // single-element tuple
     | '[' expr (',' expr)* ']' // list
     | '{' expr ':' ( expr (',' expr ':' expr)* )? '}' // dict
 	| atom;
+
+// ==============================================================================
+// Additional constructs to be implemented
+// Uncomment and implement these as needed
+
+
+// if_block: 'if' expr ':' INDENT block DEDENT ( 'else' ':' INDENT block DEDENT )? ;
+
+// conditional_expr: atom OP_3 atom ; 
+
+// loop: 'while' expr ':' INDENT block DEDENT ;
+// ==============================================================================
 
 atom: NUMBER | ID | STRING | BOOL;
 

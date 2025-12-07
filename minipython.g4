@@ -4,14 +4,30 @@ grammar minipython;
 // Parser rules (rules that define the structure of the language)
 // ==============================================================================
 
+tokens {INDENT, DEDENT}
+
 prog: block EOF;
 
 block: NEWLINE* (statement NEWLINE+ )* statement? NEWLINE* ; // catches multiple statements separated by newlines, allowing optional newlines at the start and end.
 
 statement:
-	ID '=' expr // assignment
-	| expr // expression statement
-	| ID COMPOUND_OP expr // compound assignment
+	| assignment
+	| compound_assignment
+	| if_stmt
+	;
+
+assignment:
+	ID '=' expr
+	;
+
+compound_assignment:
+	ID COMPOUND_OP expr
+	;
+
+if_stmt:
+	'if' expr ':' NEWLINE INDENT block DEDENT
+	( 'elif' expr ':' NEWLINE INDENT block DEDENT )*
+	( 'else' ':' NEWLINE INDENT block DEDENT )?
 	;
 
 expr:
@@ -25,25 +41,13 @@ expr:
     | '{' expr ':' ( expr (',' expr ':' expr)* )? '}' // dict
 	| atom;
 
-// ==============================================================================
-// Additional constructs to be implemented
-// Uncomment and implement these as needed
-
-
-// if_block: 'if' expr ':' INDENT block DEDENT ( 'else' ':' INDENT block DEDENT )? ;
-
-// conditional_expr: atom OP_3 atom ; 
-
-// loop: 'while' expr ':' INDENT block DEDENT ;
-// ==============================================================================
-
 atom: NUMBER | ID | STRING | BOOL;
 
 // TODO:
 // -----------------------------------------------------------------------------
-// 1. Conditionals
-// 2. Loops
-// 3. Function definitions and calls
+// 1. if statements
+// 2. for loops
+// 3. while loops
 
 // ==============================================================================
 // Lexer rules (tokens)

@@ -95,25 +95,27 @@ class IndentLexer(minipythonLexer):
         '''
         # Return any pending INDENT/DEDENT tokens first
         if self.pending_tokens:
-            print("Returning pending token")
+            print(f"Returning pending token: {[t.type for t in self.pending_tokens]}")
             token = self.pending_tokens.pop(0)
-            print(f"Token: type={token.type}, text='INDENT/DEDENT'")  # Add this
             return token        
         
         token = super().nextToken()
+        print(f"[TOKEN] type={token.type}, text={repr(token.text)}")
 
         # If the token is a NEWLINE, check for indentation changes
         if token.type == self.NEWLINE:
             current_indent_level = self.indent_stack[-1]
             next_indent_level = self._count_indent()
-
-            print(f"Current indent: {current_indent_level}, Next indent: {next_indent_level}")
+            print(f"[NEWLINE] text={repr(token.text)}, current_indent={current_indent_level}, next_indent={next_indent_level}, stack={self.indent_stack}")
 
             # Indentation detected
             if next_indent_level > current_indent_level:
                 self.indent_stack.append(next_indent_level)
                 indent_token = CommonToken(type=self.INDENT)
                 self.pending_tokens.append(indent_token)
+
+                print(f"[INDENT] New indent level: {next_indent_level}, stack={self.indent_stack}")
+                print(f"Tokens pending: {[t.type for t in self.pending_tokens]}")
             
             # Dedentation(s) detected
             elif next_indent_level < current_indent_level:
@@ -121,8 +123,15 @@ class IndentLexer(minipythonLexer):
                     dedent_token = CommonToken(type=self.DEDENT)
                     self.pending_tokens.append(dedent_token)
                     self.indent_stack.pop()
-        
-        print(f"Token: type={token.type}, text={repr(token.text)}")
+
+                print(f"[DEDENT] New indent level: {next_indent_level}, stack={self.indent_stack}")
+                print(f"Tokens pending: {[t.type for t in self.pending_tokens]}")
+            
+            else:
+                # Print other tokens
+                token_text = token.text if len(token.text) < 20 else token.text[:20] + "..."
+                print(f"[TOKEN] type={token.type}, text={repr(token_text)}")
+
         return token
 
 

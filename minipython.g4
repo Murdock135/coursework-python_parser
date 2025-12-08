@@ -8,7 +8,7 @@ tokens {INDENT, DEDENT}
 
 prog: block EOF;
 
-block: NEWLINE* (statement NEWLINE+ )* statement? NEWLINE* ; // catches multiple statements separated by newlines, allowing optional newlines at the start and end.
+block: (statement NEWLINE+)* statement?;
 
 statement:
 	| assignment
@@ -85,5 +85,5 @@ OP_3:
 COMPOUND_OP: (OP_1 | OP_2) '='; // Compound assignment operators
 
 COMMENT: '#' ~[\r\n]* -> skip; // Skip comments
-NEWLINE: [\r\n]+;
+NEWLINE: '\r\n' | '\n' | '\r'; // Newline characters
 WS: [ \t]+ -> skip; // Skip spaces, tabs and newlines

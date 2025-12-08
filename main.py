@@ -17,7 +17,6 @@ def main():
 
     # create input stream -> lexer -> token stream -> parser
     input_stream = FileStream(input_file)
-    breakpoint()
     lexer = IndentLexer(input_stream)
     tokens = CommonTokenStream(lexer)
     parser = minipythonParser(tokens)

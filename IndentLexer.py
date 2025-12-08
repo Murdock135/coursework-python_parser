@@ -95,7 +95,10 @@ class IndentLexer(minipythonLexer):
         '''
         # Return any pending INDENT/DEDENT tokens first
         if self.pending_tokens:
-            return self.pending_tokens.pop(0)
+            print("Returning pending token")
+            token = self.pending_tokens.pop(0)
+            print(f"Token: type={token.type}, text='INDENT/DEDENT'")  # Add this
+            return token        
         
         token = super().nextToken()
 
@@ -103,6 +106,8 @@ class IndentLexer(minipythonLexer):
         if token.type == self.NEWLINE:
             current_indent_level = self.indent_stack[-1]
             next_indent_level = self._count_indent()
+
+            print(f"Current indent: {current_indent_level}, Next indent: {next_indent_level}")
 
             # Indentation detected
             if next_indent_level > current_indent_level:
@@ -116,7 +121,8 @@ class IndentLexer(minipythonLexer):
                     dedent_token = CommonToken(type=self.DEDENT)
                     self.pending_tokens.append(dedent_token)
                     self.indent_stack.pop()
-            
+        
+        print(f"Token: type={token.type}, text={repr(token.text)}")
         return token
 
 

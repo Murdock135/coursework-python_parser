@@ -35,28 +35,28 @@ def serializedATN():
         51,3,8,4,0,48,51,3,10,5,0,49,51,3,12,6,0,50,45,1,0,0,0,50,46,1,0,
         0,0,50,47,1,0,0,0,50,48,1,0,0,0,50,49,1,0,0,0,51,5,1,0,0,0,52,53,
         5,13,0,0,53,54,5,1,0,0,54,55,3,12,6,0,55,7,1,0,0,0,56,57,5,13,0,
-        0,57,58,5,22,0,0,58,59,3,12,6,0,59,9,1,0,0,0,60,61,5,2,0,0,61,62,
-        3,12,6,0,62,63,5,3,0,0,63,64,5,24,0,0,64,65,5,26,0,0,65,66,3,2,1,
-        0,66,77,5,27,0,0,67,68,5,4,0,0,68,69,3,12,6,0,69,70,5,3,0,0,70,71,
-        5,24,0,0,71,72,5,26,0,0,72,73,3,2,1,0,73,74,5,27,0,0,74,76,1,0,0,
-        0,75,67,1,0,0,0,76,79,1,0,0,0,77,75,1,0,0,0,77,78,1,0,0,0,78,87,
-        1,0,0,0,79,77,1,0,0,0,80,81,5,5,0,0,81,82,5,3,0,0,82,83,5,24,0,0,
-        83,84,5,26,0,0,84,85,3,2,1,0,85,86,5,27,0,0,86,88,1,0,0,0,87,80,
-        1,0,0,0,87,88,1,0,0,0,88,11,1,0,0,0,89,143,6,6,-1,0,90,91,5,6,0,
-        0,91,92,3,12,6,0,92,93,5,7,0,0,93,143,1,0,0,0,94,95,5,6,0,0,95,96,
-        3,12,6,0,96,97,5,8,0,0,97,102,3,12,6,0,98,99,5,8,0,0,99,101,3,12,
-        6,0,100,98,1,0,0,0,101,104,1,0,0,0,102,100,1,0,0,0,102,103,1,0,0,
-        0,103,105,1,0,0,0,104,102,1,0,0,0,105,106,5,7,0,0,106,143,1,0,0,
-        0,107,108,5,6,0,0,108,109,3,12,6,0,109,110,5,8,0,0,110,111,5,7,0,
-        0,111,143,1,0,0,0,112,113,5,9,0,0,113,118,3,12,6,0,114,115,5,8,0,
-        0,115,117,3,12,6,0,116,114,1,0,0,0,117,120,1,0,0,0,118,116,1,0,0,
-        0,118,119,1,0,0,0,119,121,1,0,0,0,120,118,1,0,0,0,121,122,5,10,0,
-        0,122,143,1,0,0,0,123,124,5,11,0,0,124,125,3,12,6,0,125,137,5,3,
-        0,0,126,134,3,12,6,0,127,128,5,8,0,0,128,129,3,12,6,0,129,130,5,
-        3,0,0,130,131,3,12,6,0,131,133,1,0,0,0,132,127,1,0,0,0,133,136,1,
-        0,0,0,134,132,1,0,0,0,134,135,1,0,0,0,135,138,1,0,0,0,136,134,1,
-        0,0,0,137,126,1,0,0,0,137,138,1,0,0,0,138,139,1,0,0,0,139,140,5,
-        12,0,0,140,143,1,0,0,0,141,143,3,14,7,0,142,89,1,0,0,0,142,90,1,
+        0,57,58,5,22,0,0,58,59,3,12,6,0,59,9,1,0,0,0,60,61,5,10,0,0,61,62,
+        3,12,6,0,62,63,5,2,0,0,63,64,5,24,0,0,64,65,5,26,0,0,65,66,3,2,1,
+        0,66,77,5,27,0,0,67,68,5,11,0,0,68,69,3,12,6,0,69,70,5,2,0,0,70,
+        71,5,24,0,0,71,72,5,26,0,0,72,73,3,2,1,0,73,74,5,27,0,0,74,76,1,
+        0,0,0,75,67,1,0,0,0,76,79,1,0,0,0,77,75,1,0,0,0,77,78,1,0,0,0,78,
+        87,1,0,0,0,79,77,1,0,0,0,80,81,5,12,0,0,81,82,5,2,0,0,82,83,5,24,
+        0,0,83,84,5,26,0,0,84,85,3,2,1,0,85,86,5,27,0,0,86,88,1,0,0,0,87,
+        80,1,0,0,0,87,88,1,0,0,0,88,11,1,0,0,0,89,143,6,6,-1,0,90,91,5,3,
+        0,0,91,92,3,12,6,0,92,93,5,4,0,0,93,143,1,0,0,0,94,95,5,3,0,0,95,
+        96,3,12,6,0,96,97,5,5,0,0,97,102,3,12,6,0,98,99,5,5,0,0,99,101,3,
+        12,6,0,100,98,1,0,0,0,101,104,1,0,0,0,102,100,1,0,0,0,102,103,1,
+        0,0,0,103,105,1,0,0,0,104,102,1,0,0,0,105,106,5,4,0,0,106,143,1,
+        0,0,0,107,108,5,3,0,0,108,109,3,12,6,0,109,110,5,5,0,0,110,111,5,
+        4,0,0,111,143,1,0,0,0,112,113,5,6,0,0,113,118,3,12,6,0,114,115,5,
+        5,0,0,115,117,3,12,6,0,116,114,1,0,0,0,117,120,1,0,0,0,118,116,1,
+        0,0,0,118,119,1,0,0,0,119,121,1,0,0,0,120,118,1,0,0,0,121,122,5,
+        7,0,0,122,143,1,0,0,0,123,124,5,8,0,0,124,125,3,12,6,0,125,137,5,
+        2,0,0,126,134,3,12,6,0,127,128,5,5,0,0,128,129,3,12,6,0,129,130,
+        5,2,0,0,130,131,3,12,6,0,131,133,1,0,0,0,132,127,1,0,0,0,133,136,
+        1,0,0,0,134,132,1,0,0,0,134,135,1,0,0,0,135,138,1,0,0,0,136,134,
+        1,0,0,0,137,126,1,0,0,0,137,138,1,0,0,0,138,139,1,0,0,0,139,140,
+        5,9,0,0,140,143,1,0,0,0,141,143,3,14,7,0,142,89,1,0,0,0,142,90,1,
         0,0,0,142,94,1,0,0,0,142,107,1,0,0,0,142,112,1,0,0,0,142,123,1,0,
         0,0,142,141,1,0,0,0,143,155,1,0,0,0,144,145,10,9,0,0,145,146,5,19,
         0,0,146,154,3,12,6,10,147,148,10,8,0,0,148,149,5,20,0,0,149,154,
@@ -77,15 +77,15 @@ class minipythonParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'='", "'if'", "':'", "'elif'", "'else'", 
-                     "'('", "')'", "','", "'['", "']'", "'{'", "'}'" ]
+    literalNames = [ "<INVALID>", "'='", "':'", "'('", "')'", "','", "'['", 
+                     "']'", "'{'", "'}'", "'if'", "'elif'", "'else'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "ID", "NUMBER", "FLOAT", "INT", "BOOL", 
-                      "STRING", "OP_1", "OP_2", "OP_3", "COMPOUND_OP", "COMMENT", 
-                      "NEWLINE", "WS", "INDENT", "DEDENT" ]
+                      "<INVALID>", "<INVALID>", "IF", "ELIF", "ELSE", "ID", 
+                      "NUMBER", "FLOAT", "INT", "BOOL", "STRING", "OP_1", 
+                      "OP_2", "OP_3", "COMPOUND_OP", "COMMENT", "NEWLINE", 
+                      "WS", "INDENT", "DEDENT" ]
 
     RULE_prog = 0
     RULE_block = 1
@@ -109,9 +109,9 @@ class minipythonParser ( Parser ):
     T__6=7
     T__7=8
     T__8=9
-    T__9=10
-    T__10=11
-    T__11=12
+    IF=10
+    ELIF=11
+    ELSE=12
     ID=13
     NUMBER=14
     FLOAT=15
@@ -480,6 +480,9 @@ class minipythonParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
+        def IF(self):
+            return self.getToken(minipythonParser.IF, 0)
+
         def expr(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(minipythonParser.ExprContext)
@@ -512,6 +515,15 @@ class minipythonParser ( Parser ):
             else:
                 return self.getToken(minipythonParser.DEDENT, i)
 
+        def ELIF(self, i:int=None):
+            if i is None:
+                return self.getTokens(minipythonParser.ELIF)
+            else:
+                return self.getToken(minipythonParser.ELIF, i)
+
+        def ELSE(self):
+            return self.getToken(minipythonParser.ELSE, 0)
+
         def getRuleIndex(self):
             return minipythonParser.RULE_if_stmt
 
@@ -534,11 +546,11 @@ class minipythonParser ( Parser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 60
-            self.match(minipythonParser.T__1)
+            self.match(minipythonParser.IF)
             self.state = 61
             self.expr(0)
             self.state = 62
-            self.match(minipythonParser.T__2)
+            self.match(minipythonParser.T__1)
             self.state = 63
             self.match(minipythonParser.NEWLINE)
             self.state = 64
@@ -550,13 +562,13 @@ class minipythonParser ( Parser ):
             self.state = 77
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==4:
+            while _la==11:
                 self.state = 67
-                self.match(minipythonParser.T__3)
+                self.match(minipythonParser.ELIF)
                 self.state = 68
                 self.expr(0)
                 self.state = 69
-                self.match(minipythonParser.T__2)
+                self.match(minipythonParser.T__1)
                 self.state = 70
                 self.match(minipythonParser.NEWLINE)
                 self.state = 71
@@ -572,11 +584,11 @@ class minipythonParser ( Parser ):
             self.state = 87
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==5:
+            if _la==12:
                 self.state = 80
-                self.match(minipythonParser.T__4)
+                self.match(minipythonParser.ELSE)
                 self.state = 81
-                self.match(minipythonParser.T__2)
+                self.match(minipythonParser.T__1)
                 self.state = 82
                 self.match(minipythonParser.NEWLINE)
                 self.state = 83
@@ -654,28 +666,28 @@ class minipythonParser ( Parser ):
 
             elif la_ == 2:
                 self.state = 90
-                self.match(minipythonParser.T__5)
+                self.match(minipythonParser.T__2)
                 self.state = 91
                 self.expr(0)
                 self.state = 92
-                self.match(minipythonParser.T__6)
+                self.match(minipythonParser.T__3)
                 pass
 
             elif la_ == 3:
                 self.state = 94
-                self.match(minipythonParser.T__5)
+                self.match(minipythonParser.T__2)
                 self.state = 95
                 self.expr(0)
                 self.state = 96
-                self.match(minipythonParser.T__7)
+                self.match(minipythonParser.T__4)
                 self.state = 97
                 self.expr(0)
                 self.state = 102
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while _la==8:
+                while _la==5:
                     self.state = 98
-                    self.match(minipythonParser.T__7)
+                    self.match(minipythonParser.T__4)
                     self.state = 99
                     self.expr(0)
                     self.state = 104
@@ -683,31 +695,31 @@ class minipythonParser ( Parser ):
                     _la = self._input.LA(1)
 
                 self.state = 105
-                self.match(minipythonParser.T__6)
+                self.match(minipythonParser.T__3)
                 pass
 
             elif la_ == 4:
                 self.state = 107
-                self.match(minipythonParser.T__5)
+                self.match(minipythonParser.T__2)
                 self.state = 108
                 self.expr(0)
                 self.state = 109
-                self.match(minipythonParser.T__7)
+                self.match(minipythonParser.T__4)
                 self.state = 110
-                self.match(minipythonParser.T__6)
+                self.match(minipythonParser.T__3)
                 pass
 
             elif la_ == 5:
                 self.state = 112
-                self.match(minipythonParser.T__8)
+                self.match(minipythonParser.T__5)
                 self.state = 113
                 self.expr(0)
                 self.state = 118
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while _la==8:
+                while _la==5:
                     self.state = 114
-                    self.match(minipythonParser.T__7)
+                    self.match(minipythonParser.T__4)
                     self.state = 115
                     self.expr(0)
                     self.state = 120
@@ -715,16 +727,16 @@ class minipythonParser ( Parser ):
                     _la = self._input.LA(1)
 
                 self.state = 121
-                self.match(minipythonParser.T__9)
+                self.match(minipythonParser.T__6)
                 pass
 
             elif la_ == 6:
                 self.state = 123
-                self.match(minipythonParser.T__10)
+                self.match(minipythonParser.T__7)
                 self.state = 124
                 self.expr(0)
                 self.state = 125
-                self.match(minipythonParser.T__2)
+                self.match(minipythonParser.T__1)
                 self.state = 137
                 self._errHandler.sync(self)
                 la_ = self._interp.adaptivePredict(self._input,11,self._ctx)
@@ -734,13 +746,13 @@ class minipythonParser ( Parser ):
                     self.state = 134
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    while _la==8:
+                    while _la==5:
                         self.state = 127
-                        self.match(minipythonParser.T__7)
+                        self.match(minipythonParser.T__4)
                         self.state = 128
                         self.expr(0)
                         self.state = 129
-                        self.match(minipythonParser.T__2)
+                        self.match(minipythonParser.T__1)
                         self.state = 130
                         self.expr(0)
                         self.state = 136
@@ -750,7 +762,7 @@ class minipythonParser ( Parser ):
 
 
                 self.state = 139
-                self.match(minipythonParser.T__11)
+                self.match(minipythonParser.T__8)
                 pass
 
             elif la_ == 7:

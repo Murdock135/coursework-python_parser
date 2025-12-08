@@ -1,6 +1,6 @@
 import sys
 from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
-from minipythonLexer import minipythonLexer
+from IndentLexer import IndentLexer
 from minipythonParser import minipythonParser
 from minipythonListener import minipythonListener
 
@@ -17,7 +17,8 @@ def main():
 
     # create input stream -> lexer -> token stream -> parser
     input_stream = FileStream(input_file)
-    lexer = minipythonLexer(input_stream)
+    breakpoint()
+    lexer = IndentLexer(input_stream)
     tokens = CommonTokenStream(lexer)
     parser = minipythonParser(tokens)
 

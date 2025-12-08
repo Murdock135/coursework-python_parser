@@ -25,10 +25,13 @@ compound_assignment:
 	ID COMPOUND_OP expr
 	;
 
+// *************************************************************************************************
+// QUESTION FOR EKIN: Why can't we use 'if' expr ':' NEWLINE INDENT block DEDENT ... directly here?
+// *************************************************************************************************
 if_stmt:
-	'if' expr ':' NEWLINE INDENT block DEDENT
-	( 'elif' expr ':' NEWLINE INDENT block DEDENT )*
-	( 'else' ':' NEWLINE INDENT block DEDENT )?
+	IF expr ':' NEWLINE INDENT block DEDENT
+	(ELIF expr ':' NEWLINE INDENT block DEDENT)*
+	(ELSE ':' NEWLINE INDENT block DEDENT)?
 	;
 
 expr:
@@ -53,6 +56,11 @@ atom: NUMBER | ID | STRING | BOOL;
 // ==============================================================================
 // Lexer rules (tokens)
 // ==============================================================================
+
+// These need to be defined before ID to avoid conflicts
+IF: 'if';
+ELIF: 'elif';
+ELSE: 'else';
 
 ID:
 	[a-zA-Z_][a-zA-Z0-9_]*; // Identifiers start with letters or underscore

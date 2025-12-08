@@ -10,20 +10,20 @@ else:
 
 def serializedATN():
     return [
-        4,1,27,160,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,27,161,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,1,0,1,0,1,0,1,1,5,1,21,8,1,10,1,12,1,24,9,1,1,1,1,1,4,
         1,28,8,1,11,1,12,1,29,5,1,32,8,1,10,1,12,1,35,9,1,1,1,3,1,38,8,1,
-        1,1,5,1,41,8,1,10,1,12,1,44,9,1,1,2,1,2,1,2,1,2,3,2,50,8,2,1,3,1,
-        3,1,3,1,3,1,4,1,4,1,4,1,4,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,
-        5,1,5,1,5,1,5,1,5,1,5,5,5,75,8,5,10,5,12,5,78,9,5,1,5,1,5,1,5,1,
-        5,1,5,1,5,1,5,3,5,87,8,5,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,
-        1,6,5,6,100,8,6,10,6,12,6,103,9,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,
-        6,1,6,1,6,1,6,5,6,116,8,6,10,6,12,6,119,9,6,1,6,1,6,1,6,1,6,1,6,
-        1,6,1,6,1,6,1,6,1,6,1,6,5,6,132,8,6,10,6,12,6,135,9,6,3,6,137,8,
-        6,1,6,1,6,1,6,3,6,142,8,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,5,
-        6,153,8,6,10,6,12,6,156,9,6,1,7,1,7,1,7,0,1,12,8,0,2,4,6,8,10,12,
-        14,0,1,2,0,13,14,17,18,174,0,16,1,0,0,0,2,22,1,0,0,0,4,49,1,0,0,
-        0,6,51,1,0,0,0,8,55,1,0,0,0,10,59,1,0,0,0,12,141,1,0,0,0,14,157,
+        1,1,5,1,41,8,1,10,1,12,1,44,9,1,1,2,1,2,1,2,1,2,1,2,3,2,51,8,2,1,
+        3,1,3,1,3,1,3,1,4,1,4,1,4,1,4,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,
+        5,1,5,1,5,1,5,1,5,1,5,1,5,5,5,76,8,5,10,5,12,5,79,9,5,1,5,1,5,1,
+        5,1,5,1,5,1,5,1,5,3,5,88,8,5,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,
+        1,6,1,6,5,6,101,8,6,10,6,12,6,104,9,6,1,6,1,6,1,6,1,6,1,6,1,6,1,
+        6,1,6,1,6,1,6,1,6,5,6,117,8,6,10,6,12,6,120,9,6,1,6,1,6,1,6,1,6,
+        1,6,1,6,1,6,1,6,1,6,1,6,1,6,5,6,133,8,6,10,6,12,6,136,9,6,3,6,138,
+        8,6,1,6,1,6,1,6,3,6,143,8,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,
+        5,6,154,8,6,10,6,12,6,157,9,6,1,7,1,7,1,7,0,1,12,8,0,2,4,6,8,10,
+        12,14,0,1,2,0,13,14,17,18,176,0,16,1,0,0,0,2,22,1,0,0,0,4,50,1,0,
+        0,0,6,52,1,0,0,0,8,56,1,0,0,0,10,60,1,0,0,0,12,142,1,0,0,0,14,158,
         1,0,0,0,16,17,3,2,1,0,17,18,5,0,0,1,18,1,1,0,0,0,19,21,5,24,0,0,
         20,19,1,0,0,0,21,24,1,0,0,0,22,20,1,0,0,0,22,23,1,0,0,0,23,33,1,
         0,0,0,24,22,1,0,0,0,25,27,3,4,2,0,26,28,5,24,0,0,27,26,1,0,0,0,28,
@@ -31,39 +31,40 @@ def serializedATN():
         0,32,35,1,0,0,0,33,31,1,0,0,0,33,34,1,0,0,0,34,37,1,0,0,0,35,33,
         1,0,0,0,36,38,3,4,2,0,37,36,1,0,0,0,37,38,1,0,0,0,38,42,1,0,0,0,
         39,41,5,24,0,0,40,39,1,0,0,0,41,44,1,0,0,0,42,40,1,0,0,0,42,43,1,
-        0,0,0,43,3,1,0,0,0,44,42,1,0,0,0,45,50,1,0,0,0,46,50,3,6,3,0,47,
-        50,3,8,4,0,48,50,3,10,5,0,49,45,1,0,0,0,49,46,1,0,0,0,49,47,1,0,
-        0,0,49,48,1,0,0,0,50,5,1,0,0,0,51,52,5,13,0,0,52,53,5,1,0,0,53,54,
-        3,12,6,0,54,7,1,0,0,0,55,56,5,13,0,0,56,57,5,22,0,0,57,58,3,12,6,
-        0,58,9,1,0,0,0,59,60,5,2,0,0,60,61,3,12,6,0,61,62,5,3,0,0,62,63,
-        5,24,0,0,63,64,5,26,0,0,64,65,3,2,1,0,65,76,5,27,0,0,66,67,5,4,0,
-        0,67,68,3,12,6,0,68,69,5,3,0,0,69,70,5,24,0,0,70,71,5,26,0,0,71,
-        72,3,2,1,0,72,73,5,27,0,0,73,75,1,0,0,0,74,66,1,0,0,0,75,78,1,0,
-        0,0,76,74,1,0,0,0,76,77,1,0,0,0,77,86,1,0,0,0,78,76,1,0,0,0,79,80,
-        5,5,0,0,80,81,5,3,0,0,81,82,5,24,0,0,82,83,5,26,0,0,83,84,3,2,1,
-        0,84,85,5,27,0,0,85,87,1,0,0,0,86,79,1,0,0,0,86,87,1,0,0,0,87,11,
-        1,0,0,0,88,142,6,6,-1,0,89,90,5,6,0,0,90,91,3,12,6,0,91,92,5,7,0,
-        0,92,142,1,0,0,0,93,94,5,6,0,0,94,95,3,12,6,0,95,96,5,8,0,0,96,101,
-        3,12,6,0,97,98,5,8,0,0,98,100,3,12,6,0,99,97,1,0,0,0,100,103,1,0,
-        0,0,101,99,1,0,0,0,101,102,1,0,0,0,102,104,1,0,0,0,103,101,1,0,0,
-        0,104,105,5,7,0,0,105,142,1,0,0,0,106,107,5,6,0,0,107,108,3,12,6,
-        0,108,109,5,8,0,0,109,110,5,7,0,0,110,142,1,0,0,0,111,112,5,9,0,
-        0,112,117,3,12,6,0,113,114,5,8,0,0,114,116,3,12,6,0,115,113,1,0,
-        0,0,116,119,1,0,0,0,117,115,1,0,0,0,117,118,1,0,0,0,118,120,1,0,
-        0,0,119,117,1,0,0,0,120,121,5,10,0,0,121,142,1,0,0,0,122,123,5,11,
-        0,0,123,124,3,12,6,0,124,136,5,3,0,0,125,133,3,12,6,0,126,127,5,
-        8,0,0,127,128,3,12,6,0,128,129,5,3,0,0,129,130,3,12,6,0,130,132,
-        1,0,0,0,131,126,1,0,0,0,132,135,1,0,0,0,133,131,1,0,0,0,133,134,
-        1,0,0,0,134,137,1,0,0,0,135,133,1,0,0,0,136,125,1,0,0,0,136,137,
-        1,0,0,0,137,138,1,0,0,0,138,139,5,12,0,0,139,142,1,0,0,0,140,142,
-        3,14,7,0,141,88,1,0,0,0,141,89,1,0,0,0,141,93,1,0,0,0,141,106,1,
-        0,0,0,141,111,1,0,0,0,141,122,1,0,0,0,141,140,1,0,0,0,142,154,1,
-        0,0,0,143,144,10,9,0,0,144,145,5,19,0,0,145,153,3,12,6,10,146,147,
-        10,8,0,0,147,148,5,20,0,0,148,153,3,12,6,9,149,150,10,7,0,0,150,
-        151,5,21,0,0,151,153,3,12,6,8,152,143,1,0,0,0,152,146,1,0,0,0,152,
-        149,1,0,0,0,153,156,1,0,0,0,154,152,1,0,0,0,154,155,1,0,0,0,155,
-        13,1,0,0,0,156,154,1,0,0,0,157,158,7,0,0,0,158,15,1,0,0,0,15,22,
-        29,33,37,42,49,76,86,101,117,133,136,141,152,154
+        0,0,0,43,3,1,0,0,0,44,42,1,0,0,0,45,51,1,0,0,0,46,51,3,6,3,0,47,
+        51,3,8,4,0,48,51,3,10,5,0,49,51,3,12,6,0,50,45,1,0,0,0,50,46,1,0,
+        0,0,50,47,1,0,0,0,50,48,1,0,0,0,50,49,1,0,0,0,51,5,1,0,0,0,52,53,
+        5,13,0,0,53,54,5,1,0,0,54,55,3,12,6,0,55,7,1,0,0,0,56,57,5,13,0,
+        0,57,58,5,22,0,0,58,59,3,12,6,0,59,9,1,0,0,0,60,61,5,2,0,0,61,62,
+        3,12,6,0,62,63,5,3,0,0,63,64,5,24,0,0,64,65,5,26,0,0,65,66,3,2,1,
+        0,66,77,5,27,0,0,67,68,5,4,0,0,68,69,3,12,6,0,69,70,5,3,0,0,70,71,
+        5,24,0,0,71,72,5,26,0,0,72,73,3,2,1,0,73,74,5,27,0,0,74,76,1,0,0,
+        0,75,67,1,0,0,0,76,79,1,0,0,0,77,75,1,0,0,0,77,78,1,0,0,0,78,87,
+        1,0,0,0,79,77,1,0,0,0,80,81,5,5,0,0,81,82,5,3,0,0,82,83,5,24,0,0,
+        83,84,5,26,0,0,84,85,3,2,1,0,85,86,5,27,0,0,86,88,1,0,0,0,87,80,
+        1,0,0,0,87,88,1,0,0,0,88,11,1,0,0,0,89,143,6,6,-1,0,90,91,5,6,0,
+        0,91,92,3,12,6,0,92,93,5,7,0,0,93,143,1,0,0,0,94,95,5,6,0,0,95,96,
+        3,12,6,0,96,97,5,8,0,0,97,102,3,12,6,0,98,99,5,8,0,0,99,101,3,12,
+        6,0,100,98,1,0,0,0,101,104,1,0,0,0,102,100,1,0,0,0,102,103,1,0,0,
+        0,103,105,1,0,0,0,104,102,1,0,0,0,105,106,5,7,0,0,106,143,1,0,0,
+        0,107,108,5,6,0,0,108,109,3,12,6,0,109,110,5,8,0,0,110,111,5,7,0,
+        0,111,143,1,0,0,0,112,113,5,9,0,0,113,118,3,12,6,0,114,115,5,8,0,
+        0,115,117,3,12,6,0,116,114,1,0,0,0,117,120,1,0,0,0,118,116,1,0,0,
+        0,118,119,1,0,0,0,119,121,1,0,0,0,120,118,1,0,0,0,121,122,5,10,0,
+        0,122,143,1,0,0,0,123,124,5,11,0,0,124,125,3,12,6,0,125,137,5,3,
+        0,0,126,134,3,12,6,0,127,128,5,8,0,0,128,129,3,12,6,0,129,130,5,
+        3,0,0,130,131,3,12,6,0,131,133,1,0,0,0,132,127,1,0,0,0,133,136,1,
+        0,0,0,134,132,1,0,0,0,134,135,1,0,0,0,135,138,1,0,0,0,136,134,1,
+        0,0,0,137,126,1,0,0,0,137,138,1,0,0,0,138,139,1,0,0,0,139,140,5,
+        12,0,0,140,143,1,0,0,0,141,143,3,14,7,0,142,89,1,0,0,0,142,90,1,
+        0,0,0,142,94,1,0,0,0,142,107,1,0,0,0,142,112,1,0,0,0,142,123,1,0,
+        0,0,142,141,1,0,0,0,143,155,1,0,0,0,144,145,10,9,0,0,145,146,5,19,
+        0,0,146,154,3,12,6,10,147,148,10,8,0,0,148,149,5,20,0,0,149,154,
+        3,12,6,9,150,151,10,7,0,0,151,152,5,21,0,0,152,154,3,12,6,8,153,
+        144,1,0,0,0,153,147,1,0,0,0,153,150,1,0,0,0,154,157,1,0,0,0,155,
+        153,1,0,0,0,155,156,1,0,0,0,156,13,1,0,0,0,157,155,1,0,0,0,158,159,
+        7,0,0,0,159,15,1,0,0,0,15,22,29,33,37,42,50,77,87,102,118,134,137,
+        142,153,155
     ]
 
 class minipythonParser ( Parser ):
@@ -306,6 +307,10 @@ class minipythonParser ( Parser ):
             return self.getTypedRuleContext(minipythonParser.If_stmtContext,0)
 
 
+        def expr(self):
+            return self.getTypedRuleContext(minipythonParser.ExprContext,0)
+
+
         def getRuleIndex(self):
             return minipythonParser.RULE_statement
 
@@ -325,7 +330,7 @@ class minipythonParser ( Parser ):
         localctx = minipythonParser.StatementContext(self, self._ctx, self.state)
         self.enterRule(localctx, 4, self.RULE_statement)
         try:
-            self.state = 49
+            self.state = 50
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
             if la_ == 1:
@@ -349,6 +354,12 @@ class minipythonParser ( Parser ):
                 self.enterOuterAlt(localctx, 4)
                 self.state = 48
                 self.if_stmt()
+                pass
+
+            elif la_ == 5:
+                self.enterOuterAlt(localctx, 5)
+                self.state = 49
+                self.expr(0)
                 pass
 
 
@@ -395,11 +406,11 @@ class minipythonParser ( Parser ):
         self.enterRule(localctx, 6, self.RULE_assignment)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 51
-            self.match(minipythonParser.ID)
             self.state = 52
-            self.match(minipythonParser.T__0)
+            self.match(minipythonParser.ID)
             self.state = 53
+            self.match(minipythonParser.T__0)
+            self.state = 54
             self.expr(0)
         except RecognitionException as re:
             localctx.exception = re
@@ -447,11 +458,11 @@ class minipythonParser ( Parser ):
         self.enterRule(localctx, 8, self.RULE_compound_assignment)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 55
-            self.match(minipythonParser.ID)
             self.state = 56
-            self.match(minipythonParser.COMPOUND_OP)
+            self.match(minipythonParser.ID)
             self.state = 57
+            self.match(minipythonParser.COMPOUND_OP)
+            self.state = 58
             self.expr(0)
         except RecognitionException as re:
             localctx.exception = re
@@ -522,57 +533,57 @@ class minipythonParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 59
-            self.match(minipythonParser.T__1)
             self.state = 60
-            self.expr(0)
+            self.match(minipythonParser.T__1)
             self.state = 61
-            self.match(minipythonParser.T__2)
+            self.expr(0)
             self.state = 62
-            self.match(minipythonParser.NEWLINE)
+            self.match(minipythonParser.T__2)
             self.state = 63
-            self.match(minipythonParser.INDENT)
+            self.match(minipythonParser.NEWLINE)
             self.state = 64
-            self.block()
+            self.match(minipythonParser.INDENT)
             self.state = 65
+            self.block()
+            self.state = 66
             self.match(minipythonParser.DEDENT)
-            self.state = 76
+            self.state = 77
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==4:
-                self.state = 66
-                self.match(minipythonParser.T__3)
                 self.state = 67
-                self.expr(0)
+                self.match(minipythonParser.T__3)
                 self.state = 68
-                self.match(minipythonParser.T__2)
+                self.expr(0)
                 self.state = 69
-                self.match(minipythonParser.NEWLINE)
+                self.match(minipythonParser.T__2)
                 self.state = 70
-                self.match(minipythonParser.INDENT)
+                self.match(minipythonParser.NEWLINE)
                 self.state = 71
-                self.block()
+                self.match(minipythonParser.INDENT)
                 self.state = 72
+                self.block()
+                self.state = 73
                 self.match(minipythonParser.DEDENT)
-                self.state = 78
+                self.state = 79
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 86
+            self.state = 87
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==5:
-                self.state = 79
-                self.match(minipythonParser.T__4)
                 self.state = 80
-                self.match(minipythonParser.T__2)
+                self.match(minipythonParser.T__4)
                 self.state = 81
-                self.match(minipythonParser.NEWLINE)
+                self.match(minipythonParser.T__2)
                 self.state = 82
-                self.match(minipythonParser.INDENT)
+                self.match(minipythonParser.NEWLINE)
                 self.state = 83
-                self.block()
+                self.match(minipythonParser.INDENT)
                 self.state = 84
+                self.block()
+                self.state = 85
                 self.match(minipythonParser.DEDENT)
 
 
@@ -635,121 +646,121 @@ class minipythonParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 141
+            self.state = 142
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,12,self._ctx)
             if la_ == 1:
                 pass
 
             elif la_ == 2:
-                self.state = 89
-                self.match(minipythonParser.T__5)
                 self.state = 90
-                self.expr(0)
+                self.match(minipythonParser.T__5)
                 self.state = 91
+                self.expr(0)
+                self.state = 92
                 self.match(minipythonParser.T__6)
                 pass
 
             elif la_ == 3:
-                self.state = 93
-                self.match(minipythonParser.T__5)
                 self.state = 94
-                self.expr(0)
+                self.match(minipythonParser.T__5)
                 self.state = 95
-                self.match(minipythonParser.T__7)
-                self.state = 96
                 self.expr(0)
-                self.state = 101
+                self.state = 96
+                self.match(minipythonParser.T__7)
+                self.state = 97
+                self.expr(0)
+                self.state = 102
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==8:
-                    self.state = 97
-                    self.match(minipythonParser.T__7)
                     self.state = 98
+                    self.match(minipythonParser.T__7)
+                    self.state = 99
                     self.expr(0)
-                    self.state = 103
+                    self.state = 104
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
-                self.state = 104
+                self.state = 105
                 self.match(minipythonParser.T__6)
                 pass
 
             elif la_ == 4:
-                self.state = 106
-                self.match(minipythonParser.T__5)
                 self.state = 107
-                self.expr(0)
+                self.match(minipythonParser.T__5)
                 self.state = 108
-                self.match(minipythonParser.T__7)
+                self.expr(0)
                 self.state = 109
+                self.match(minipythonParser.T__7)
+                self.state = 110
                 self.match(minipythonParser.T__6)
                 pass
 
             elif la_ == 5:
-                self.state = 111
-                self.match(minipythonParser.T__8)
                 self.state = 112
+                self.match(minipythonParser.T__8)
+                self.state = 113
                 self.expr(0)
-                self.state = 117
+                self.state = 118
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==8:
-                    self.state = 113
-                    self.match(minipythonParser.T__7)
                     self.state = 114
+                    self.match(minipythonParser.T__7)
+                    self.state = 115
                     self.expr(0)
-                    self.state = 119
+                    self.state = 120
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
-                self.state = 120
+                self.state = 121
                 self.match(minipythonParser.T__9)
                 pass
 
             elif la_ == 6:
-                self.state = 122
-                self.match(minipythonParser.T__10)
                 self.state = 123
-                self.expr(0)
+                self.match(minipythonParser.T__10)
                 self.state = 124
+                self.expr(0)
+                self.state = 125
                 self.match(minipythonParser.T__2)
-                self.state = 136
+                self.state = 137
                 self._errHandler.sync(self)
                 la_ = self._interp.adaptivePredict(self._input,11,self._ctx)
                 if la_ == 1:
-                    self.state = 125
+                    self.state = 126
                     self.expr(0)
-                    self.state = 133
+                    self.state = 134
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     while _la==8:
-                        self.state = 126
-                        self.match(minipythonParser.T__7)
                         self.state = 127
-                        self.expr(0)
+                        self.match(minipythonParser.T__7)
                         self.state = 128
-                        self.match(minipythonParser.T__2)
-                        self.state = 129
                         self.expr(0)
-                        self.state = 135
+                        self.state = 129
+                        self.match(minipythonParser.T__2)
+                        self.state = 130
+                        self.expr(0)
+                        self.state = 136
                         self._errHandler.sync(self)
                         _la = self._input.LA(1)
 
 
 
-                self.state = 138
+                self.state = 139
                 self.match(minipythonParser.T__11)
                 pass
 
             elif la_ == 7:
-                self.state = 140
+                self.state = 141
                 self.atom()
                 pass
 
 
             self._ctx.stop = self._input.LT(-1)
-            self.state = 154
+            self.state = 155
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,14,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
@@ -757,50 +768,50 @@ class minipythonParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 152
+                    self.state = 153
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,13,self._ctx)
                     if la_ == 1:
                         localctx = minipythonParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 143
+                        self.state = 144
                         if not self.precpred(self._ctx, 9):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 9)")
-                        self.state = 144
-                        self.match(minipythonParser.OP_1)
                         self.state = 145
+                        self.match(minipythonParser.OP_1)
+                        self.state = 146
                         self.expr(10)
                         pass
 
                     elif la_ == 2:
                         localctx = minipythonParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 146
+                        self.state = 147
                         if not self.precpred(self._ctx, 8):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 8)")
-                        self.state = 147
-                        self.match(minipythonParser.OP_2)
                         self.state = 148
+                        self.match(minipythonParser.OP_2)
+                        self.state = 149
                         self.expr(9)
                         pass
 
                     elif la_ == 3:
                         localctx = minipythonParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 149
+                        self.state = 150
                         if not self.precpred(self._ctx, 7):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 7)")
-                        self.state = 150
-                        self.match(minipythonParser.OP_3)
                         self.state = 151
+                        self.match(minipythonParser.OP_3)
+                        self.state = 152
                         self.expr(8)
                         pass
 
              
-                self.state = 156
+                self.state = 157
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,14,self._ctx)
 
@@ -853,7 +864,7 @@ class minipythonParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 157
+            self.state = 158
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 417792) != 0)):
                 self._errHandler.recoverInline(self)

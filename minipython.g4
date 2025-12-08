@@ -14,6 +14,7 @@ statement:
 	| assignment
 	| compound_assignment
 	| if_stmt
+	| expr
 	;
 
 assignment:

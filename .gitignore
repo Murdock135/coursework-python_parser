@@ -9,15 +9,6 @@ wheels/
 # Virtual environments
 .venv
 
-# ANTLR generated files
-*Lexer.py
-*Parser.py
-*Listener.py
-*Visitor.py
-*.tokens
-*.interp
-parse_tree.ps
-
 # IDE/Editor files
 .vscode/
 .idea/

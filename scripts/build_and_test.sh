@@ -12,12 +12,12 @@ echo "[RUN] Parser generated."
 
 echo "===================================================================================="
 echo "[RUN] Testing against test_code/project_deliverable_1.py"
-uv run "$PROJECT_ROOT/src/main.py" "$PROJECT_ROOT/test_code/project_deliverable_1.py" 2>&1 | tee "$OUTPUT_DIR/output_pd1.log"
+uv run -m src.main "$PROJECT_ROOT/test_code/project_deliverable_1.py" 2>&1 | tee "$OUTPUT_DIR/output_pd1.log"
 echo "[RUN] Done testing against test_code/project_deliverable_1.py"
 
 echo "===================================================================================="
 echo "[RUN] Testing against test_code/project_deliverable_2.py"
-uv run "$PROJECT_ROOT/src/main.py" "$PROJECT_ROOT/test_code/project_deliverable_2.py" 2>&1 | tee "$OUTPUT_DIR/output_pd2.log"
+uv run -m src.main "$PROJECT_ROOT/test_code/project_deliverable_2.py" 2>&1 | tee "$OUTPUT_DIR/output_pd2.log"
 echo "[RUN] Done testing against test_code/project_deliverable_2.py"
 
 # echo "===================================================================================="

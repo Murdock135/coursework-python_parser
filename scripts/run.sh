@@ -1,3 +1,6 @@
 #!/bin/bash
 
-bash build_and_test.sh | tee run.log
+SCRIPTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$SCRIPTS_DIR/.."
+
+bash "$PROJECT_ROOT/scripts/build_and_test.sh" | tee "$PROJECT_ROOT/output/run.log"

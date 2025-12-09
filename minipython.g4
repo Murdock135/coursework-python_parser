@@ -38,6 +38,9 @@ expr:
 	| expr OP_1 expr // multiplicative
 	| expr OP_2 expr // additive
 	| expr OP_3 expr // comparison
+	| expr AND expr // logical AND
+	| expr OR expr // logical OR
+	| NOT expr // logical NOT
 	| '(' expr ')' // parenthesized expr
 	| '(' expr ',' expr (',' expr)* ')' // tuple (2+ elements)
 	| '(' expr ',' ')' // single-element tuple
@@ -57,13 +60,15 @@ atom: NUMBER | ID | STRING | BOOL;
 // Lexer rules (tokens)
 // ==============================================================================
 
-// These need to be defined before ID to avoid conflicts
+// -------------------------------------------------------------------------------------
+// The following are defined BEFORE ID
 IF: 'if';
 ELIF: 'elif';
 ELSE: 'else';
+AND: 'and';
+OR: 'or';
+NOT: 'not';
 
-ID:
-	[a-zA-Z_][a-zA-Z0-9_]*; // Identifiers start with letters or underscore
 NUMBER: INT | FLOAT;
 FLOAT: '-'? [0-9]+ '.' [0-9]+; // Floating point literals
 INT: '-'? [0-9]+; // Integer literals
@@ -84,6 +89,13 @@ OP_3:
 	| '>='; // Comparison operators
 COMPOUND_OP: (OP_1 | OP_2) '='; // Compound assignment operators
 
+// *************************************************************************************************************************
+// QUESTION FOR EKIN: Why can't we use this? Claude mentioned that we canot reference other token names in Lexer rules
+// LOGICAL_OP: AND | OR | NOT; // Logical operators
+// **************************************************************************************************************************
+
+//----------------------------------------------------------------------------------------
+ID: [a-zA-Z_][a-zA-Z0-9_]*; // Identifiers start with letters or underscore
 COMMENT: '#' ~[\r\n]* -> skip; // Skip comments
 NEWLINE: '\r\n' | '\n' | '\r'; // Newline characters
 WS: [ \t]+ -> skip; // Skip spaces, tabs and newlines

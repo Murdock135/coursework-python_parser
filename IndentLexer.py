@@ -132,6 +132,21 @@ class IndentLexer(minipythonLexer):
                 token_text = token.text if len(token.text) < 20 else token.text[:20] + "..."
                 print(f"[TOKEN] type={token.type}, text={repr(token_text)}")
 
+        # Handle EOF to emit remaining DEDENT tokens
+        elif token.type == token.EOF:
+            # At EOF, emit DEDENT tokens for any remaining indentation levels
+            while len(self.indent_stack) > 1:
+                dedent_token = CommonToken(type=self.DEDENT)
+                self.pending_tokens.append(dedent_token)
+                self.indent_stack.pop()
+            
+            print(f"[EOF] Emitting DEDENTs for remaining indent levels, stack={self.indent_stack}")
+            print(f"Tokens pending: {[t.type for t in self.pending_tokens]}")
+
+            # If there are pending tokens, return the first one
+            if self.pending_tokens:
+                token = self.pending_tokens.pop(0)
+
         return token
 
 

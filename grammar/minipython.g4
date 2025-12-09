@@ -18,7 +18,7 @@ statement:
 	;
 
 assignment:
-	ID '=' expr
+	ID ASSIGN expr
 	;
 
 compound_assignment:
@@ -29,13 +29,9 @@ compound_assignment:
 // QUESTION FOR EKIN: Why can't we use 'if' expr ':' NEWLINE INDENT block DEDENT ... directly here?
 // *************************************************************************************************
 if_stmt:
-	IF expr ':' NEWLINE INDENT block DEDENT
-	(ELIF expr ':' NEWLINE INDENT block DEDENT)*
-	(ELSE ':' NEWLINE INDENT block DEDENT)?
-	;
-
-while_stmt:
-	'while' expr ':' NEWLINE INDENT block DEDENT
+	IF expr COLON NEWLINE INDENT block DEDENT
+	(ELIF expr COLON NEWLINE INDENT block DEDENT)*
+	(ELSE COLON NEWLINE INDENT block DEDENT)?
 	;
 
 expr:
@@ -45,11 +41,11 @@ expr:
 	| expr AND expr // logical AND
 	| expr OR expr // logical OR
 	| NOT expr // logical NOT
-	| '(' expr ')' // parenthesized expr
-	| '(' expr ',' expr (',' expr)* ')' // tuple (2+ elements)
-	| '(' expr ',' ')' // single-element tuple
-    | '[' expr (',' expr)* ']' // list
-    | '{' expr ':' ( expr (',' expr ':' expr)* )? '}' // dict
+	| LPAREN expr RPAREN // parenthesized expr
+	| LPAREN expr COMMA expr (COMMA expr)* RPAREN // tuple (2+ elements)
+	| LPAREN expr COMMA RPAREN // single-element tuple
+    | LBRACKET expr (COMMA expr)* RBRACKET // list
+    | LBRACE expr COLON (expr (COMMA expr COLON expr)*)? RBRACE // dict
 	| atom;
 
 atom: NUMBER | ID | STRING | BOOL;
@@ -76,6 +72,13 @@ NUMBER: INT | FLOAT;
 FLOAT: '-'? [0-9]+ '.' [0-9]+; // Floating point literals
 INT: '-'? [0-9]+; // Integer literals
 BOOL: 'True' | 'False'; // Boolean literals
+
+// Triple-quoted comments defined before STRING to avoid conflicts
+TRIPLE_QUOTE_COMMENT
+    : ('"""' .*? '"""' | '\'\'\'' .*? '\'\'\'')
+    -> skip
+    ;	
+
 STRING:
 	'"' ('\\' . | ~["\\\r\n])* '"' // Double-quoted strings: Backslash escapes followed by any character OR any character except backslash, double-quote, carriage return, or newline
 	| '\'' ( '\\' . | ~['\\\r\n])* '\''; // Single-quoted strings: Backslash escapes followed by any character OR any character except backslash, single-quote, carriage return, or newline
@@ -91,6 +94,17 @@ OP_3:
 	| '>'
 	| '>='; // Comparison operators
 COMPOUND_OP: (OP_1 | OP_2) '='; // Compound assignment operators
+
+// Single character tokens
+ASSIGN: '=';
+COLON: ':';
+LPAREN: '(';
+RPAREN: ')';
+LBRACKET: '[';
+RBRACKET: ']';
+LBRACE: '{';
+RBRACE: '}';
+COMMA: ',';
 
 // *************************************************************************************************************************
 // QUESTION FOR EKIN: Why can't we use this? Claude mentioned that we canot reference other token names in Lexer rules

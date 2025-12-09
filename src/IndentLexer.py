@@ -5,14 +5,14 @@ from generated.minipythonLexer import minipythonLexer
 from generated.minipythonParser import minipythonParser
 from antlr4.Token import CommonToken
 
-# ================================================================================================================
-# IndentLexer extends the ANTLR-generated minipythonLexer to add support for Python-style indentation.
-# It tracks indentation levels and emits INDENT and DEDENT tokens when the indentation changes,
-# allowing the parser to recognize block structure based on leading whitespace, similar to Python's syntax.
 
 class IndentLexer(minipythonLexer):
     '''
     A lexer that handles indentation-based block structure similar to Python.
+
+    IndentLexer extends the ANTLR-generated minipythonLexer to add support for Python-style indentation.
+    It tracks indentation levels and emits INDENT and DEDENT tokens when the indentation changes,
+    allowing the parser to recognize block structure based on leading whitespace, similar to Python's syntax.
     '''
     INDENT = minipythonParser.INDENT
     DEDENT = minipythonParser.DEDENT
@@ -39,31 +39,6 @@ class IndentLexer(minipythonLexer):
             offset += 1
         
         return count
-
-    # =================================================================================
-    # Conceptual:
-    # Take the following example:
-    # --------------------------------
-    # if x:
-    #   if y:
-    #       a = 1
-    # b = 2
-    # --------------------------------
-    # The lexer processes each line and tracks indentation:
-    # - After 'if x:\n', the lexer sees the indent increase from 0 to 4 spaces.
-    #   It pushes 4 to the indent stack, queues INDENT, and returns NEWLINE.
-    #   Stack: [0, 4]
-    # - After 'if y:\n', the indent increases from 4 to 8 spaces.
-    #   It pushes 8 to the stack, queues INDENT, and returns NEWLINE.
-    #   Stack: [0, 4, 8]
-    # - After 'a = 1\n', the indent decreases from 8 to 4 spaces.
-    #   It pops 8 from the stack, queues DEDENT, and returns NEWLINE.
-    #   Stack: [0, 4]
-    # - After 'b = 2\n', the indent decreases from 4 to 0 spaces.
-    #   It pops 4 from the stack, queues DEDENT, and returns NEWLINE.
-    #   Stack: [0]
-    # This mechanism allows the parser to recognize when blocks start and end,
-    # mirroring Python's indentation-based syntax.
 
     def nextToken(self):
         '''

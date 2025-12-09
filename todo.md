@@ -10,6 +10,9 @@
 7. Move bash scripts to scripts/
     - build_and_test.sh
     - run.sh
+8. Update bash scripts
+    - build_and_test.sh
+    - run.sh
 
 8. Update .gitignore
     - add generated/

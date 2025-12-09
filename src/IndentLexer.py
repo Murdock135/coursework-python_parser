@@ -1,8 +1,8 @@
 from typing import TextIO, Any
 import sys
 
-from minipythonLexer import minipythonLexer
-from minipythonParser import minipythonParser
+from generated.minipythonLexer import minipythonLexer
+from generated.minipythonParser import minipythonParser
 from antlr4.Token import CommonToken
 
 # ================================================================================================================

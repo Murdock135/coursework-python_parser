@@ -34,6 +34,10 @@ if_stmt:
 	(ELSE ':' NEWLINE INDENT block DEDENT)?
 	;
 
+while_stmt:
+	'while' expr ':' NEWLINE INDENT block DEDENT
+	;
+
 expr:
 	| expr OP_1 expr // multiplicative
 	| expr OP_2 expr // additive
@@ -52,7 +56,6 @@ atom: NUMBER | ID | STRING | BOOL;
 
 // TODO:
 // -----------------------------------------------------------------------------
-// 1. if statements
 // 2. for loops
 // 3. while loops
 

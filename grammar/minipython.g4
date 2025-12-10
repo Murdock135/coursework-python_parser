@@ -14,6 +14,7 @@ statement:
 	| assignment
 	| compound_assignment
 	| if_stmt
+	| while_loop
 	| expr
 	;
 
@@ -32,6 +33,10 @@ if_stmt:
 	IF expr COLON NEWLINE INDENT block DEDENT
 	(ELIF expr COLON NEWLINE INDENT block DEDENT)*
 	(ELSE COLON NEWLINE INDENT block DEDENT)?
+	;
+
+while_loop:
+	'while' expr COLON NEWLINE INDENT block DEDENT
 	;
 
 expr:

@@ -16,7 +16,7 @@ class MyListener(minipythonListener):
     def enterCompound_assignment(self, ctx:minipythonParser.Compound_assignmentContext):
         print(f"[COMPOUND_ASSIGNMENT] compound_assignment detected at line {ctx.start.line}")
 
-    # def enterWhile_stmt(self, ctx:minipythonParser.While_stmtContext):
-    #     print(f"[STRUCTURE] while_stmt detected at line {ctx.start.line}")
+    def enterWhile_loop(self, ctx:minipythonParser.While_loopContext):
+        print(f"[WHILE_LOOP] while_loop detected at line {ctx.start.line}")
     
     # Add more enterXXX methods for other structures you want to detect

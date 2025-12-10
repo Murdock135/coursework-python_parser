@@ -1,6 +1,11 @@
+
+
 import sys
 from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
+
 from .IndentLexer import IndentLexer
+from .MyListener import MyListener
+
 from generated.minipythonParser import minipythonParser
 from generated.minipythonListener import minipythonListener
 
@@ -24,10 +29,12 @@ def main():
     # parse the input file starting from the 'prog' rule
     tree = parser.prog()
 
+    # create a listener
+    listener = MyListener()
+
     # walk the parse tree and print the nodes
     walker = ParseTreeWalker()
-    printer = minipythonListener()
-    walker.walk(printer, tree)
+    walker.walk(listener, tree)
 
 
 if __name__ == '__main__':

@@ -3,6 +3,12 @@ from generated.minipythonParser import minipythonParser
 from generated.minipythonListener import minipythonListener
 
 class MyListener(minipythonListener):
+
+    def enterProg(self, ctx:minipythonParser.ProgContext):
+        print("[START] program start")
+
+    def exitProg(self, ctx: minipythonParser.ProgContext):
+        print("[END] program end")
     
     def enterIf_stmt(self, ctx:minipythonParser.If_stmtContext):
         print(f"[IF_STMT] if_stmt detected at line {ctx.start.line}")
@@ -18,5 +24,13 @@ class MyListener(minipythonListener):
 
     def enterWhile_loop(self, ctx:minipythonParser.While_loopContext):
         print(f"[WHILE_LOOP] while_loop detected at line {ctx.start.line}")
+
+    def enterFor_loop(self, ctx:minipythonParser.For_loopContext):
+        print(f"[FOR_LOOP] for_loop detected at line {ctx.start.line}")
+    
+    def enterFunc_call(self, ctx:minipythonParser.Func_callContext):
+        print(f"[FUNC_CALL] func_call detected at line {ctx.start.line}")
+    
+    
     
     # Add more enterXXX methods for other structures you want to detect

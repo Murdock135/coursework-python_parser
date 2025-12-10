@@ -15,6 +15,8 @@ statement:
 	| compound_assignment
 	| if_stmt
 	| while_loop
+	| for_loop
+	| func_call
 	| expr
 	;
 
@@ -37,6 +39,14 @@ if_stmt:
 
 while_loop:
 	'while' expr COLON NEWLINE INDENT block DEDENT
+	;
+
+for_loop:
+	'for' ID 'in' (expr | func_call) COLON NEWLINE INDENT block DEDENT
+	;
+
+func_call:
+	ID LPAREN (expr (COMMA expr)*)? RPAREN
 	;
 
 expr:

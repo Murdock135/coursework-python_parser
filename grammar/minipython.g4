@@ -11,7 +11,7 @@ prog: block EOF;
 block: (statement NEWLINE+)* statement?;
 
 statement:
-	| assignment
+	assignment
 	| compound_assignment
 	| if_stmt
 	| while_loop
@@ -50,7 +50,7 @@ func_call:
 	;
 
 expr:
-	| expr OP_1 expr // multiplicative
+	expr OP_1 expr // multiplicative
 	| expr OP_2 expr // additive
 	| expr OP_3 expr // comparison
 	| expr AND expr // logical AND

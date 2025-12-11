@@ -2,6 +2,7 @@
 
 import sys
 from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
+from antlr4.tree.Trees import Trees
 
 from .IndentLexer import IndentLexer
 from .MyListener import MyListener
@@ -28,6 +29,21 @@ def main():
 
     # parse the input file starting from the 'prog' rule
     tree = parser.prog()
+
+    # print the parse tree in a LISP-style format
+    print("-------------------------------------------------------------------------")
+    print("[TREE] (Lisp Style)")
+    try:
+        tree_str = Trees.toStringTree(tree, None, parser)
+        print(tree_str)
+    except (TypeError, AttributeError) as e:
+        print(f"Error generating tree: {e}")
+        print("Tree has None nodes - likely a parsing issue with if statements")
+        
+        # Let's check if there were syntax errors
+        if parser.getNumberOfSyntaxErrors() > 0:
+            print(f"Number of syntax errors: {parser.getNumberOfSyntaxErrors()}")
+    print("------------------------------------------------------------------------")
 
     # create a listener
     listener = MyListener()

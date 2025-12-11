@@ -27,7 +27,7 @@ Then check the outputs in `output/`. The files are designated as follows-
 > [!NOTE] 
 > I highly recommend using [Usage (The way I intended)](#usage-the-way-i-intended). Because I've automated whatever you'd be running in this section. You can also read the scripts in `scripts/` and skip reading below. The scripts are very simple.
 
-> [!WARNING]
+> [!CAUTION]
 > The scripts have only been tested with bash. If you're using a different shell, results may vary. 
 
 > [!WARNING]

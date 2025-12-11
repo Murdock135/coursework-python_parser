@@ -24,20 +24,56 @@ Then check the outputs in `output/`. The files are designated as follows-
 
 # Usage (if you want to do every step manually)
 
-> Note: I highly recommend using [Usage (The way I intended)](#usage-the-way-i-intended). Because I've automated whatever you'd be running in this section :)
+> [!NOTE] 
+> I highly recommend using [Usage (The way I intended)](#usage-the-way-i-intended). Because I've automated whatever you'd be running in this section. You can also read the scripts in `scripts/` and skip reading below. The scripts are very simple.
 
->Note: FOLLOW THIS EXACTLY. OTHERWISE THE PROJECT WON'T WORK
+> [!WARNING]
+> The scripts have only been tested with bash. If you're using a different shell, results may vary. 
 
+> [!WARNING]
+> FOLLOW THIS EXACTLY. OTHERWISE THE PROJECT WON'T WORK
 
-A grammar file is named <grammar_name>.g4, same as the name of the grammar. The most basic command to create a lexer and parser for the grammar is the following- 
+## Generating parser
+
+First create a directory to store output logs.
 
 ```sh
-antlr4 -Dlanguage=Python3 <.g4 file>
+mkdir output
+```
+
+Generate the parser and associated files.
+
+```sh
+# Generate parser and store the generated parser into generated/ folder
+antlr4 -Dlanguage=Python3 -o generated <.g4 file> 2>&1 | tee "output/parser_generation.log
 ```
 
 You can also use the docker image in https://hub.docker.com/r/petervaczi/antlr, follow the instructions there and run
 
 ```sh
-docker-antlr -Dlanguage=Python3 <.g4 file>
+docker-antlr4 -Dlanguage=Python3 -o generated <.g4 file> 2>&1 | tee "output/parser_generation.log
 ```
+
+The above command should create the `generated/` directory for you. If it doesn't, make the directory and run the command again. 
+
+At this point, you will have generated the parser and the associated code. Read on to test code against this grammar.
+
+## Testing against sample code
+
+The sample code is kept in `test_code/`. If you want to add more sample code files, store the additional code files in this directory.
+
+To test the generated grammar against any sample in `test_code/`, the command is (DO NOT USE THIS. READ BEYOND.)
+
+```sh
+uv run -m src.main "<path_to_sample_code>"
+```
+But in this project, you have to use
+
+```sh
+# Test grammar against <path_to_sample_code> and save the output in output/<output_file.log>
+uv run -m src.main "<path_to_sample_code" 2>&1 | tee "output/<output_file>.log"
+```
+
+This will save results in `output/<output_file>.log`
+
 

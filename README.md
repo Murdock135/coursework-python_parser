@@ -65,6 +65,12 @@ At this point, you will have generated the parser and the associated code. Read 
 
 The sample code is kept in `test_code/`. If you want to add more sample code files, you can store the additional code files in this directory.
 
+Before testing, create and initialize a virtual environment with `uv`.
+
+```sh
+uv sync && source .venv/bin/activate
+```
+
 To test the generated grammar against any sample in `test_code/`, the command is
 
 ```sh

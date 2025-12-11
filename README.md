@@ -6,6 +6,8 @@
 
 # Usage (The way I intended)
 
+This project will create a grammar and the corresponding ANTLR parser code and finally test the grammar against sample python code in `test_code/`. Some files already exist in the directory. When you run the project, only those will be used to test the grammar. If you wish to use other sample code to test the grammar against, read [Usage (if you want to do every step manually)](#usage-if-you-want-to-do-every-step-manually)
+
 Create a virtual environment with `uv`.
 
 ```sh
@@ -29,21 +31,18 @@ Then check the outputs in `output/`. The files are designated as follows-
 # Usage (if you want to do every step manually)
 
 > [!NOTE] 
-> I highly recommend using [Usage (The way I intended)](#usage-the-way-i-intended). Because I've automated whatever you'd be running in this section. You can also read the scripts in `scripts/` and skip reading below. The scripts are very simple.
+> I highly recommend using [Usage (The way I intended)](#usage-the-way-i-intended) if you only want to test the grammar against the existing sample code. Otherwise, read on. You can also read the scripts in `scripts/` and skip reading below. The scripts are very simple.
+
+>[!NOTE]
+> The below commands are simply my opinionated suggestions. I believe running the below commands is more convenient than running their baser counterparts manually.
 
 > [!CAUTION]
 > The scripts have only been tested with bash. If you're using a different shell, results may vary. 
 
-> [!WARNING]
-> FOLLOW THIS EXACTLY. OTHERWISE THE PROJECT WON'T WORK
 
 ## Generating parser
 
-First create a directory to store output logs.
 
-```sh
-mkdir output
-```
 
 Generate the parser and associated files.
 
@@ -64,14 +63,20 @@ At this point, you will have generated the parser and the associated code. Read 
 
 ## Testing against sample code
 
-The sample code is kept in `test_code/`. If you want to add more sample code files, store the additional code files in this directory.
+The sample code is kept in `test_code/`. If you want to add more sample code files, you can store the additional code files in this directory.
 
-To test the generated grammar against any sample in `test_code/`, the command is (DO NOT USE THIS. READ BEYOND.)
+To test the generated grammar against any sample in `test_code/`, the command is
 
 ```sh
 uv run -m src.main "<path_to_sample_code>"
 ```
-But in this project, you have to use
+It may be better to store the output somewhere. To do so, create the output directory first.
+
+```sh
+mkdir output
+```
+
+Then test.
 
 ```sh
 # Test grammar against <path_to_sample_code> and save the output in output/<output_file.log>

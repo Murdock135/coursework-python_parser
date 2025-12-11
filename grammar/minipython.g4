@@ -8,7 +8,7 @@ tokens {INDENT, DEDENT}
 
 prog: block EOF;
 
-block: (statement NEWLINE+)* statement?;
+block: statement (NEWLINE+ statement)* NEWLINE*;
 
 statement:
 	assignment
@@ -33,16 +33,25 @@ compound_assignment:
 // *************************************************************************************************
 if_stmt:
 	IF expr COLON NEWLINE INDENT block DEDENT
+	elif_clause
+	else_clause
+	;
+
+elif_clause:
 	(ELIF expr COLON NEWLINE INDENT block DEDENT)*
-	(ELSE COLON NEWLINE INDENT block DEDENT)?
+	;
+
+else_clause:
+	(ELSE COLON NEWLINE INDENT block DEDENT)
+	|
 	;
 
 while_loop:
-	'while' expr COLON NEWLINE INDENT block DEDENT
+	WHILE expr COLON NEWLINE INDENT block DEDENT
 	;
 
 for_loop:
-	'for' ID 'in' (expr | func_call) COLON NEWLINE INDENT block DEDENT
+	FOR ID IN (expr | func_call) COLON NEWLINE INDENT block DEDENT
 	;
 
 func_call:
@@ -82,6 +91,9 @@ ELSE: 'else';
 AND: 'and';
 OR: 'or';
 NOT: 'not';
+WHILE: 'while';
+FOR: 'for';
+IN: 'in';
 
 NUMBER: INT | FLOAT;
 FLOAT: '-'? [0-9]+ '.' [0-9]+; // Floating point literals

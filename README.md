@@ -1,14 +1,18 @@
 # Prerequisites
 
-TLDR for the impatient: Install these two packages
-1. antlr4
-2. uv (yes, this is required.)
+1. antlr4 (or docker-antlr from https://hub.docker.com/r/petervaczi/antlr)
+2. [uv](https://docs.astral.sh/uv/)
 
-antlr4 and a runtime for antlr needs to be installed. Refer to https://www.antlr.org/download.html for instructions on installing these. Alternatively, you can simply pull the docker image: https://hub.docker.com/r/petervaczi/antlr. This image has the required packages for using antlr4.
 
 # Usage (The way I intended)
 
-Simply run
+Create a virtual environment with `uv`.
+
+```sh
+uv sync && source .venv/bin/activate
+```
+
+Then simply run
 
 ```sh
 bash scripts/run.sh

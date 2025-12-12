@@ -2,6 +2,7 @@
 
 1. antlr4 (or docker-antlr from https://hub.docker.com/r/petervaczi/antlr)
 2. [uv](https://docs.astral.sh/uv/)
+3. [graphviz](https://github.com/graphp/graphviz?tab=readme-ov-file#install) 
 
 
 # Usage (The way I intended)

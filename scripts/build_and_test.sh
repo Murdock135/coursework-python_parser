@@ -26,4 +26,16 @@ uv run -m src.main "$PROJECT_ROOT/test_code/project_deliverable_3.py" 2>&1 | tee
 echo "[RUN] Done testing against test_code/project_deliverable_3.py"
 echo "===================================================================================="
 
-echo "[RUN] All tasks completed successfully."
+echo "===================================================================================="
+echo "[RUN] Generating ASTs"
+
+mkdir -p "$OUTPUT_DIR/asts"
+mkdir -p "$OUTPUT_DIR/asts/ast_pd1"
+mkdir -p "$OUTPUT_DIR/asts/ast_pd2"
+mkdir -p "$OUTPUT_DIR/asts/ast_pd3"
+
+uv run -m src.ASTVisualizer "$PROJECT_ROOT/test_code/project_deliverable_1.py" -o "$OUTPUT_DIR/asts/ast_pd1" 2>&1 | tee "$OUTPUT_DIR/asts/ast_pd1.log"
+uv run -m src.ASTVisualizer "$PROJECT_ROOT/test_code/project_deliverable_2.py" -o "$OUTPUT_DIR/asts/ast_pd2" 2>&1 | tee "$OUTPUT_DIR/asts/ast_pd2.log"
+uv run -m src.ASTVisualizer "$PROJECT_ROOT/test_code/project_deliverable_3.py" -o "$OUTPUT_DIR/asts/ast_pd3" 2>&1 | tee "$OUTPUT_DIR/asts/ast_pd3.log"
+
+echo "[RUN] Finished"

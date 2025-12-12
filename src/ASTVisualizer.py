@@ -405,19 +405,21 @@ def parse_and_visualize(input_file, output_path=None):
     with open(input_path, 'r') as f:
         input_text = f.read()
     
-    # Determine output base name
+    # Determine output directory and base name
     if output_path:
-        output_base = Path(output_path)
-        # Create parent directory if it doesn't exist
-        if output_base.parent != Path('.'):
-            output_base.parent.mkdir(parents=True, exist_ok=True)
-        output_base = str(output_base)
+        output_dir = Path(output_path)
+        # Create output directory
+        output_dir.mkdir(parents=True, exist_ok=True)
+        # Use input filename stem as the base filename inside the directory
+        base_name = input_path.stem
+        output_base = str(output_dir / base_name)
     else:
-        # Default: same directory as input, name "ast"
-        output_base = "ast"
+        # Default: current directory, use input filename stem
+        output_base = input_path.stem
     
     print(f"Parsing: {input_file}")
-    print(f"Output: {output_base}.*")
+    print(f"Output directory: {output_path if output_path else '.'}")
+    print(f"Output files: {Path(output_base).name}.*")
     print(f"Size: {len(input_text)} characters")
     print("-" * 60)
     
@@ -489,14 +491,16 @@ def main():
         epilog="""
 Examples:
   python astvisualizer.py test_code.py
-  python astvisualizer.py test_code.py -o output/my_ast
-  python astvisualizer.py ../tests/test1.py -o results/test1_ast
+    → test_code.{dot,png,svg,pdf} in current directory
+  
+  python astvisualizer.py test_code.py -o output/asts/ast_pd1
+    → output/asts/ast_pd1/test_code.{dot,png,svg,pdf}
+  
+  python astvisualizer.py ../tests/my_test.py -o results
+    → results/my_test.{dot,png,svg,pdf}
 
-Generates:
-  <output>.dot - DOT format graph
-  <output>.png - PNG visualization
-  <output>.svg - SVG visualization
-  <output>.pdf - PDF document
+The -o option specifies the output DIRECTORY.
+Files are named after the input file (without .py extension).
         """
     )
     
@@ -508,7 +512,7 @@ Generates:
     parser.add_argument(
         '-o', '--output',
         dest='output_path',
-        help='Output path/basename (without extension). Default: ast',
+        help='Output directory. Files named <input_stem>.{dot,png,svg,pdf}. Default: current directory',
         default=None
     )
     

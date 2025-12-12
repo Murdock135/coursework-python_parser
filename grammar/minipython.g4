@@ -1,101 +1,175 @@
 grammar minipython;
 
-// ==============================================================================
-// Parser rules (rules that define the structure of the language)
-// ==============================================================================
+tokens { INDENT, DEDENT }
 
-tokens {INDENT, DEDENT}
+// ==========================
+// PROGRAM
+// ==========================
 
-prog: block EOF;
+prog: block EOF ;
 
-block: statement (NEWLINE+ statement)* NEWLINE*;
+block:
+    statement (NEWLINE+ statement)* NEWLINE*
+    ;
+
+// ==========================
+// STATEMENTS
+// ==========================
 
 statement:
-	assignment
-	| compound_assignment
-	| if_stmt
-	| while_loop
-	| for_loop
-	| func_call
-	| expr
-	;
+      assignment
+    | compound_assignment
+    | if_stmt
+    | while_loop
+    | for_loop
+    | func_call
+    | expr
+    ;
 
-assignment: ID ASSIGN expr;
+// ==========================
+// ASSIGNMENT STATEMENTS
+// ==========================
 
-compound_assignment: ID COMPOUND_OP expr;
+assignment:
+    ID ASSIGN expr
+    ;
 
-// ======================================================================================================
+compound_assignment:
+    ID COMPOUND_OP expr
+    ;
+
+// ==========================
 // CONTROL FLOW
-// ======================================================================================================
+// ==========================
 
-// *************************************************************************************************
-// QUESTION FOR EKIN: Why can't we use 'if' expr ':' NEWLINE INDENT block DEDENT ... directly here?
-// *************************************************************************************************
 if_stmt:
-	IF expr COLON suite
-	(NEWLINE* elif_clause)*
-	(NEWLINE* else_clause)?
-	;
+      IF expr COLON suite
+      (NEWLINE* elif_clause)*
+      (NEWLINE* else_clause)?
+    ;
 
-elif_clause: ELIF expr COLON suite;
+elif_clause:
+      ELIF expr COLON suite
+    ;
 
-else_clause: ELSE COLON suite;
+else_clause:
+      ELSE COLON suite
+    ;
 
-// ===============================================================================================
+// ==========================
 // LOOPS
-// ===============================================================================================
+// ==========================
 
-while_loop: WHILE expr COLON suite;
+while_loop:
+    WHILE expr COLON suite
+    ;
 
-for_loop: FOR ID IN (expr | func_call) COLON suite;
+for_loop:
+    FOR ID IN (expr | func_call) COLON suite
+    ;
 
-// ======================================================================================================
-// FUNCTION CALLS
-// ======================================================================================================
+// ==========================
+// FUNCTION CALL
+// ==========================
 
-func_call: ID LPAREN (expr (COMMA expr)*)? RPAREN;
+func_call:
+    ID LPAREN (expr (COMMA expr)*)? RPAREN
+    ;
 
-// ======================================================================================================
-// SUITE
-// ======================================================================================================
+// ==========================
+// SUITES (INDENTED BLOCKS)
+// ==========================
 
-suite: NEWLINE INDENT block DEDENT;
+suite:
+    NEWLINE INDENT block DEDENT
+    ;
 
-// ======================================================================================================
+// ==========================
 // EXPRESSIONS
-// ======================================================================================================
+// ==========================
 
-expr
-	: expr OP_1 expr // multiplicative
-	| expr OP_2 expr // additive
-	| expr OP_3 expr // comparison
-	| expr AND expr // logical AND
-	| expr OR expr // logical OR
-	| NOT expr // logical NOT
-	| LPAREN expr RPAREN // parenthesized expr
-	| LPAREN expr COMMA expr (COMMA expr)* RPAREN // tuple (2+ elements)
-	| LPAREN expr COMMA RPAREN // single-element tuple
-    | LBRACKET expr (COMMA expr)* RBRACKET // list
-    | LBRACE expr COLON (expr (COMMA expr COLON expr)*)? RBRACE // dict
-	| atom;
+// Precedence (highest at bottom):
+// expr → or → and → comparison → additive → multiplicative → unary → primary
 
-atom
-	: NUMBER 
-	| ID 
-	| STRING 
-	| BOOL;
+expr:
+    logical_or_expr
+    ;
 
-// TODO:
-// -----------------------------------------------------------------------------
-// 2. for loops
-// 3. while loops
+logical_or_expr:
+      logical_and_expr
+    | logical_or_expr OR logical_and_expr
+    ;
 
-// ==============================================================================
-// Lexer rules (tokens)
-// ==============================================================================
+logical_and_expr:
+      comparison_expr
+    | logical_and_expr AND comparison_expr
+    ;
 
-// -------------------------------------------------------------------------------------
-// The following are defined BEFORE ID
+comparison_expr:
+      additive_expr
+    | comparison_expr OP_3 additive_expr
+    ;
+
+additive_expr:
+      multiplicative_expr
+    | additive_expr OP_2 multiplicative_expr
+    ;
+
+multiplicative_expr:
+      unary_expr
+    | multiplicative_expr OP_1 unary_expr
+    ;
+
+unary_expr:
+      NOT unary_expr
+    | primary
+    | LPAREN expr RPAREN     // <-- FIXED: allow parentheses here!
+    ;
+
+// ==========================
+// PRIMARY EXPRESSIONS
+// ==========================
+
+primary:
+      atom
+    | func_call
+    | tuple_literal
+    | list_literal
+    | dict_literal
+    ;
+
+// ==========================
+// LITERALS
+// ==========================
+
+// Correct ordering to avoid ambiguity:
+// Parenthesized expr is in unary_expr—not here.
+
+tuple_literal:
+      LPAREN expr COMMA RPAREN                    // single element
+    | LPAREN expr COMMA expr (COMMA expr)* RPAREN // multi-element
+    ;
+
+list_literal:
+    LBRACKET (expr (COMMA expr)*)? RBRACKET
+    ;
+
+dict_literal:
+    LBRACE (expr COLON expr (COMMA expr COLON expr)*)? RBRACE
+    ;
+
+atom:
+      NUMBER
+    | ID
+    | STRING
+    | BOOL
+    ;
+
+// ==========================
+// LEXER RULES
+// ==========================
+
+// RESERVED WORDS
 IF: 'if';
 ELIF: 'elif';
 ELSE: 'else';
@@ -106,35 +180,38 @@ WHILE: 'while';
 FOR: 'for';
 IN: 'in';
 
+// LITERALS
 NUMBER: INT | FLOAT;
-FLOAT: '-'? [0-9]+ '.' [0-9]+; // Floating point literals
-INT: '-'? [0-9]+; // Integer literals
-BOOL: 'True' | 'False'; // Boolean literals
 
-// Triple-quoted comments defined before STRING to avoid conflicts
+FLOAT: '-'? [0-9]+ '.' [0-9]+ ;
+INT:   '-'? [0-9]+ ;
+BOOL:  'True' | 'False' ;
+
+// STRINGS
 TRIPLE_QUOTE_COMMENT
-    : ('"""' .*? '"""' | '\'\'\'' .*? '\'\'\'')
-    -> skip
-    ;	
+    : ('"""' .*? '"""' | '\'\'\'' .*? '\'\'\'') -> skip
+    ;
 
 STRING:
-	'"' ('\\' . | ~["\\\r\n])* '"' // Double-quoted strings: Backslash escapes followed by any character OR any character except backslash, double-quote, carriage return, or newline
-	| '\'' ( '\\' . | ~['\\\r\n])* '\''; // Single-quoted strings: Backslash escapes followed by any character OR any character except backslash, single-quote, carriage return, or newline
+      '"'  ('\\' . | ~["\\\r\n])* '"'
+    | '\'' ('\\' . | ~['\\\r\n])* '\''
+    ;
 
-// Operators
-OP_1: '*' | '/' | '%'; // Multiplicative operators
-OP_2: '+' | '-'; // Additive operators
+// OPERATORS
+OP_1: '*' | '/' | '%';
+OP_2: '+' | '-';
 OP_3:
-	'=='
-	| '!='
-	| '<'
-	| '<='
-	| '>'
-	| '>='; // Comparison operators
+      '=='
+    | '!='
+    | '<'
+    | '<='
+    | '>'
+    | '>='
+    ;
 
-COMPOUND_OP: (OP_1 | OP_2) '='; // Compound assignment operators
+COMPOUND_OP: (OP_1 | OP_2) '=';
 
-// Single character tokens
+// SYMBOLS
 ASSIGN: '=';
 COLON: ':';
 LPAREN: '(';
@@ -145,13 +222,10 @@ LBRACE: '{';
 RBRACE: '}';
 COMMA: ',';
 
-// *************************************************************************************************************************
-// QUESTION FOR EKIN: Why can't we use this? Claude mentioned that we canot reference other token names in Lexer rules
-// LOGICAL_OP: AND | OR | NOT; // Logical operators
-// **************************************************************************************************************************
+// IDENTIFIERS
+ID: [a-zA-Z_][a-zA-Z0-9_]* ;
 
-//----------------------------------------------------------------------------------------
-ID: [a-zA-Z_][a-zA-Z0-9_]*; // Identifiers start with letters or underscore
-COMMENT: '#' ~[\r\n]* -> skip; // Skip comments
-NEWLINE: '\r\n' | '\n' | '\r'; // Newline characters
-WS: [ \t]+ -> skip; // Skip spaces, tabs and newlines
+// WHITESPACE / NEWLINE
+COMMENT: '#' ~[\r\n]* -> skip ;
+NEWLINE: '\r\n' | '\n' | '\r' ;
+WS: [ \t]+ -> skip ;

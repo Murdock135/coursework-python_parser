@@ -75,7 +75,6 @@ class IndentLexer(minipythonLexer):
             return token        
         
         token = super().nextToken()
-        print(f"[TOKEN] type={token.type}, text={repr(token.text)}")
 
         # If the token is a NEWLINE, check for indentation changes
         if token.type == self.NEWLINE:
@@ -121,6 +120,10 @@ class IndentLexer(minipythonLexer):
             # If there are pending tokens, return the first one
             if self.pending_tokens:
                 token = self.pending_tokens.pop(0)
+        else:
+            # Simply print token type
+            print(f"[TOKEN] type={token.type}, text={repr(token.text)}")
+
 
         return token
 

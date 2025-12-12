@@ -1,5 +1,3 @@
-
-
 import sys
 from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
 from antlr4.tree.Trees import Trees

@@ -20,46 +20,53 @@ statement:
 	| expr
 	;
 
-assignment:
-	ID ASSIGN expr
-	;
+assignment: ID ASSIGN expr;
 
-compound_assignment:
-	ID COMPOUND_OP expr
-	;
+compound_assignment: ID COMPOUND_OP expr;
+
+// ======================================================================================================
+// CONTROL FLOW
+// ======================================================================================================
 
 // *************************************************************************************************
 // QUESTION FOR EKIN: Why can't we use 'if' expr ':' NEWLINE INDENT block DEDENT ... directly here?
 // *************************************************************************************************
 if_stmt:
-	IF expr COLON NEWLINE INDENT block DEDENT
-	elif_clause
-	else_clause
+	IF expr COLON suite
+	(NEWLINE* elif_clause)*
+	(NEWLINE* else_clause)?
 	;
 
-elif_clause:
-	(ELIF expr COLON NEWLINE INDENT block DEDENT)*
-	;
+elif_clause: ELIF expr COLON suite;
 
-else_clause:
-	(ELSE COLON NEWLINE INDENT block DEDENT)
-	|
-	;
+else_clause: ELSE COLON suite;
 
-while_loop:
-	WHILE expr COLON NEWLINE INDENT block DEDENT
-	;
+// ===============================================================================================
+// LOOPS
+// ===============================================================================================
 
-for_loop:
-	FOR ID IN (expr | func_call) COLON NEWLINE INDENT block DEDENT
-	;
+while_loop: WHILE expr COLON suite;
 
-func_call:
-	ID LPAREN (expr (COMMA expr)*)? RPAREN
-	;
+for_loop: FOR ID IN (expr | func_call) COLON suite;
 
-expr:
-	expr OP_1 expr // multiplicative
+// ======================================================================================================
+// FUNCTION CALLS
+// ======================================================================================================
+
+func_call: ID LPAREN (expr (COMMA expr)*)? RPAREN;
+
+// ======================================================================================================
+// SUITE
+// ======================================================================================================
+
+suite: NEWLINE INDENT block DEDENT;
+
+// ======================================================================================================
+// EXPRESSIONS
+// ======================================================================================================
+
+expr
+	: expr OP_1 expr // multiplicative
 	| expr OP_2 expr // additive
 	| expr OP_3 expr // comparison
 	| expr AND expr // logical AND
@@ -72,7 +79,11 @@ expr:
     | LBRACE expr COLON (expr (COMMA expr COLON expr)*)? RBRACE // dict
 	| atom;
 
-atom: NUMBER | ID | STRING | BOOL;
+atom
+	: NUMBER 
+	| ID 
+	| STRING 
+	| BOOL;
 
 // TODO:
 // -----------------------------------------------------------------------------
@@ -120,6 +131,7 @@ OP_3:
 	| '<='
 	| '>'
 	| '>='; // Comparison operators
+
 COMPOUND_OP: (OP_1 | OP_2) '='; // Compound assignment operators
 
 // Single character tokens

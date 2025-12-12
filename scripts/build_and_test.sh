@@ -7,7 +7,7 @@ OUTPUT_DIR="$PROJECT_ROOT/output"
 
 echo "===================================================================================="
 echo "[RUN] Starting parser generation"
-antlr4 -Dlanguage=Python3 -o "$PROJECT_ROOT/generated" "$PROJECT_ROOT/grammar/minipython.g4" 2>&1 | tee "$OUTPUT_DIR/parser_generation.log"
+antlr4 -Dlanguage=Python3 -visitor -o "$PROJECT_ROOT/generated" "$PROJECT_ROOT/grammar/minipython.g4" 2>&1 | tee "$OUTPUT_DIR/parser_generation.log"
 echo "[RUN] Parser generated."
 
 echo "===================================================================================="

@@ -92,4 +92,12 @@ uv run -m src.main "<path_to_sample_code" 2>&1 | tee "output/<output_file>.log"
 
 This will save results in `output/<output_file>.log`
 
+## Visualizing AST
+
+To visualize the Abstract Syntax Tree (AST) of your Python code, you can use the `ASTVisualizer.py` script provided in the `src/` directory. This script generates a DOT file and corresponding PNG and SVG visualizations of the AST.
+
+```sh
+uv run -m src.ASTVisualizer "<path_to_sample_code>" -o <output_directory>
+```
+
 

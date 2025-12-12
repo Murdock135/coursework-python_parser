@@ -75,17 +75,7 @@ class ASTVisualizer(minipythonVisitor):
         node_id = self.get_node_id()
         self.add_node(node_id, "PROGRAM", self.colors['control'])
         
-        if ctx.block():
-            child_id = self.visit(ctx.block())
-            self.add_edge(node_id, child_id)
-        
-        return node_id
-    
-    def visitBlock(self, ctx):
-        """Visit block of statements"""
-        node_id = self.get_node_id()
-        self.add_node(node_id, "BLOCK", self.colors['control'])
-        
+        # Visit all statements directly
         statements = ctx.statement()
         for i, stmt_ctx in enumerate(statements):
             child_id = self.visit(stmt_ctx)
@@ -94,26 +84,47 @@ class ASTVisualizer(minipythonVisitor):
         return node_id
     
     def visitStatement(self, ctx):
-        """Visit statement - dispatch to specific type"""
+        """Visit statement - dispatch to simple_stmt or compound_stmt"""
+        if ctx.simple_stmt():
+            return self.visit(ctx.simple_stmt())
+        elif ctx.compound_stmt():
+            return self.visit(ctx.compound_stmt())
+        
+        # Fallback
+        node_id = self.get_node_id()
+        self.add_node(node_id, "statement", self.colors['expression'])
+        return node_id
+    
+    def visitSimple_stmt(self, ctx):
+        """Visit simple statement - dispatch to specific type"""
         if ctx.assignment():
             return self.visit(ctx.assignment())
         elif ctx.compound_assignment():
             return self.visit(ctx.compound_assignment())
-        elif ctx.if_stmt():
-            return self.visit(ctx.if_stmt())
-        elif ctx.while_loop():
-            return self.visit(ctx.while_loop())
-        elif ctx.for_loop():
-            return self.visit(ctx.for_loop())
         elif ctx.func_call():
             return self.visit(ctx.func_call())
         elif ctx.expr():
             return self.visit(ctx.expr())
         
+        # Fallback
         node_id = self.get_node_id()
-        self.add_node(node_id, "statement", self.colors['expression'])
+        self.add_node(node_id, "simple_stmt", self.colors['expression'])
         return node_id
     
+    def visitCompound_stmt(self, ctx):
+        """Visit compound statement - dispatch to specific type"""
+        if ctx.if_stmt():
+            return self.visit(ctx.if_stmt())
+        elif ctx.while_loop():
+            return self.visit(ctx.while_loop())
+        elif ctx.for_loop():
+            return self.visit(ctx.for_loop())
+        
+        # Fallback
+        node_id = self.get_node_id()
+        self.add_node(node_id, "compound_stmt", self.colors['control'])
+        return node_id
+
     # =========================================================================
     # ASSIGNMENTS
     # =========================================================================
@@ -281,13 +292,15 @@ class ASTVisualizer(minipythonVisitor):
     # =========================================================================
     
     def visitSuite(self, ctx):
-        """Visit suite (indented block)"""
+        """Visit suite (indented block of statements)"""
         node_id = self.get_node_id()
         self.add_node(node_id, "SUITE", self.colors['control'])
         
-        if ctx.block():
-            block_id = self.visit(ctx.block())
-            self.add_edge(node_id, block_id)
+        # Visit all statements in the suite
+        statements = ctx.statement()
+        for i, stmt_ctx in enumerate(statements):
+            stmt_id = self.visit(stmt_ctx)
+            self.add_edge(node_id, stmt_id, f"stmt{i}")
         
         return node_id
     

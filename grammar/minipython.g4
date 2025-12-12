@@ -6,48 +6,62 @@ grammar minipython;
 
 tokens {INDENT, DEDENT}
 
-prog: block EOF;
+prog: statement* EOF;
 
-block: statement (NEWLINE+ statement)* NEWLINE*;
+// block: statement (NEWLINE+ statement)* NEWLINE*;
 
-statement:
-	assignment
+// statement:
+// 	assignment
+// 	| compound_assignment
+// 	| if_stmt
+// 	| while_loop
+// 	| for_loop
+// 	| func_call
+// 	| expr
+// 	;
+
+statement
+	: simple_stmt NEWLINE*
+	| compound_stmt
+	;
+
+simple_stmt
+	: assignment
 	| compound_assignment
-	| if_stmt
-	| while_loop
-	| for_loop
 	| func_call
 	| expr
+	;
+
+compound_stmt
+	: if_stmt
+	| while_loop
+	| for_loop
 	;
 
 assignment: ID ASSIGN expr;
 
 compound_assignment: ID COMPOUND_OP expr;
 
-// ======================================================================================================
-// CONTROL FLOW
-// ======================================================================================================
-
 // *************************************************************************************************
 // QUESTION FOR EKIN: Why can't we use 'if' expr ':' NEWLINE INDENT block DEDENT ... directly here?
 // *************************************************************************************************
-if_stmt:
-	IF expr COLON suite
-	(NEWLINE* elif_clause)*
-	(NEWLINE* else_clause)?
+if_stmt
+	: IF expr COLON suite
+	(elif_clause)*
+	(else_clause)?
 	;
 
-elif_clause: ELIF expr COLON suite;
+elif_clause: ELIF expr suite;
 
-else_clause: ELSE COLON suite;
+else_clause: ELSE suite;
 
 // ===============================================================================================
 // LOOPS
 // ===============================================================================================
 
-while_loop: WHILE expr COLON suite;
+while_loop: WHILE expr suite;
 
-for_loop: FOR ID IN (expr | func_call) COLON suite;
+for_loop: FOR ID IN (expr | func_call) suite;
 
 // ======================================================================================================
 // FUNCTION CALLS
@@ -59,7 +73,7 @@ func_call: ID LPAREN (expr (COMMA expr)*)? RPAREN;
 // SUITE
 // ======================================================================================================
 
-suite: NEWLINE INDENT block DEDENT;
+suite: COLON NEWLINE INDENT statement+ DEDENT;
 
 // ======================================================================================================
 // EXPRESSIONS

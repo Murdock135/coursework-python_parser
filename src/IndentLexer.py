@@ -75,7 +75,10 @@ class IndentLexer(minipythonLexer):
             return token        
         
         token = super().nextToken()
-        print(f"[TOKEN] type={token.type}, text={repr(token.text)}")
+        
+        # Skip WS tokens
+        while token.type == self.WS:
+            token = super().nextToken()
 
         # If the token is a NEWLINE, check for indentation changes
         if token.type == self.NEWLINE:

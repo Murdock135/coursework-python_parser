@@ -149,4 +149,6 @@ COMMA: ',';
 ID: [a-zA-Z_][a-zA-Z0-9_]*; // Identifiers start with letters or underscore
 COMMENT: '#' ~[\r\n]* -> skip; // Skip comments
 NEWLINE: '\r\n' | '\n' | '\r'; // Newline characters
-WS: [ \t]+ -> skip; // Skip spaces, tabs and newlines
+
+WS: [ \t]+; // Whitespace (spaces and tabs)
+// Note: Indentation handling is done in the IndentLexer.py file

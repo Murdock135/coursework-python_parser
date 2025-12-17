@@ -14,7 +14,7 @@ import argparse
 import subprocess
 from pathlib import Path
 from antlr4 import InputStream, CommonTokenStream
-from generated.minipythonLexer import minipythonLexer
+from .IndentLexer import IndentLexer
 from generated.minipythonParser import minipythonParser
 from generated.minipythonVisitor import minipythonVisitor
 
@@ -426,7 +426,7 @@ def parse_and_visualize(input_file, output_path=None):
     try:
         # Create lexer
         input_stream = InputStream(input_text)
-        lexer = minipythonLexer(input_stream)
+        lexer = IndentLexer(input_stream)
         
         # Create token stream
         token_stream = CommonTokenStream(lexer)
